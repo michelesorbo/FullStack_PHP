@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animazioni</title>
+    <style>
+        .animazione1{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: red;
+            animation: cambio_colore; /*Nome Animazione*/
+            animation-duration: 4s; /*Durata animazione*/
+            animation-iteration-count: 2 /*Numeoro di ripetizione dell'animazione*/
+        }
+
+        /*Creo l'animazione*/
+        @keyframes cambio_colore{
+            0%{
+                background-color: red;
+            }
+
+            100%{
+                background-color: yellow;
+            }
+        }
+
+        .animazione2{
+            margin-top: 10px;
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: red;
+            animation: cambio_colore_posizione; /*Nome Animazione*/
+            animation-duration: 4s; /*Durata animazione*/
+            animation-iteration-count: 1 /*Numeoro di ripetizione dell'animazione*/
+        }
+
+        @keyframes cambio_colore_posizione {
+            0% {background-color: red; left: 0px; top: 0px;}
+            25% {background-color: yellow; left: 200px; top: 0px;}
+            50% {background-color: blue; left: 200px; top: 200px;}
+            75% {background-color: green; left: 0px; top: 200px;}
+            100% {background-color: red; left: 0px; top: 0px;}
+        }
+
+        .ruota{
+            height: 100px;
+            width: 100px;
+            background-color: blueviolet;
+            transition-duration: 2s;
+        }
+
+        .ruota:hover{
+            /* transform: rotate(20deg); */
+            transform: translate(50px, 50px); /*asse x e asse y */
+        }
+
+        .btn{
+            margin-top: 20px;
+            width: 150px;
+            height: 40px;
+            color: white;
+            background-color: cadetblue;
+            border: 2px solid #000;
+            border-radius: 5px 0px;
+            transition-duration: 0.5s;
+        }
+
+        .btn:hover{
+           background-color: red; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animazione1"></div>
+    <div class="animazione2"></div>
+    <div class="ruota"></div>
+    <button class="btn">Premi</button>
+
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">Link Teoria</a></p>
+    
+</body>
+</html>

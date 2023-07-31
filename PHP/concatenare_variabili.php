@@ -5,4 +5,5 @@ $eta = 44; //Intero
 
 echo "Il nome è: $nome e ha $eta anni";
 
+echo "Ciao";
 ?>
