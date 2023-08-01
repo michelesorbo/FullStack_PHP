@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La variabili</title>
+</head>
+
+<body>
+
+
+    <!--Scrivo il codice JS-->
+    <script src="js/primo.js"></script><!--Importare file js esterno-->
+
+    <!--Scrivo JS in pagina-->
+    <script>
+        //Scrivo il mio codice di JS
+        console.log("Ciao dalla pagina")
+
+        /*
+        1) il nome delle variabili deve essere descrittivo
+        2) il nome delle variabili non possono contenere spazzi
+        3) le varibili iniziano sempre con una lettera minuscola
+        4) non usare mai lettere accentate
+        5) non usare nomi del programma es: for let var string while if else
+       */
+
+        let testo //Ho dichiarato una variabile let o var si usano solo l aprima volta che dichiaro la variabile
+        testo = "Ciao" //Ho assegnato un valore alla variabile, se lo faccio la prima volta si chiama inizializzazione della variabile
+
+        var nome = "Michele" //è una variabile visibile globalmente
+        let cognome = "Sorbo" //Variabile visibile localmente JS6 chiede i dusare let
+
+        console.log(nome)
+
+        nome = "Claudio"
+        console.log(nome)
+
+        document.write("<b>" + nome + "</b>")
+
+        let firstname = "Michele" //Variabile di tipo stringa
+        let eta = 43 //Variabile di tipo Numerico
+        let num_sci = 9007199254720n //Variabile di tipo BigInt
+        let bool = true //Variabilei di tipo boolenao true/false
+
+        let testo1 = "Sono il testo uno un'auto e disse \"Ciao\"" //Caratteri di Escape
+        console.log(testo1)
+        let testo2 = 'Sono un\'auto'
+        console.log(testo2)
+        let testo3 = "Ciao mi chiamo " + nome + " è un piacere conoscerti"
+        console.log(testo3)
+
+        /*
+        metodo con Backtick shortcut on Windows is Alt + 96 , whereas the native shortcut for the tilde is Alt + 126 
+        per Mac option + 9
+        */
+
+        let testo4 = `Mi chiamo ${nome} e ho ${eta}`
+        //let testo4 = "Mi chiamo " + nome + " e ho " + eta
+        console.log(testo4)
+
+        //Il comando PROMPT
+        let utente = prompt("Chi sei?")
+        console.log("Hai inserito nel prompt " + utente)
+
+        /* Esercizio 1:
+        Prendere da tastiera il nome e il cognome di una persona e stamparlo in consolo log
+        es: Il nome inerito è: ... e il cognome è: ...
+        */
+        let es_nome = prompt("Inserisci il nome")
+        let es_cognome = prompt("Inserisci il cognome")
+        console.log("Il nome inserito è: " + es_nome + " e il congome è: " + es_cognome)
+
+    </script>
+</body>
+
+</html>

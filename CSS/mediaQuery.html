@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+    <style>
+        .box{
+            height: 600px;
+            width: 600px;
+            border: 2px solid cornflowerblue;
+            background-color: salmon;
+        }
+
+        p{
+            background-color: coral;
+            font-size: 35px;
+        }
+
+        /*Media Query */
+        @media screen and (max-width: 400px) {
+            .box{
+                width: 200px;
+                height: 200px;
+                background-color: cadetblue;
+            }
+        }
+
+        /*Regola per la stampa*/
+        @media print {
+            .box{
+                display: none;
+            }
+
+            p{
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid rerum velit neque, amet voluptates et, tempore quos iusto doloribus ab ratione veritatis aspernatur quaerat tempora hic voluptatibus sed nam dolorem.</p>
+    <div class="box">Sono box e non verrò stampato</div>
+</body>
+</html>
