@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+
+@import url('regole.css'); /*Importare un foglio css dalla stessa cartella*/
+/*Dichiaro le variabili di CSS */
+/*Le variabili iniziano sempre con --<nome_della_variabile> : <regola> */
+/* :root{
+    --colre-testo: #fff;
+    --font-family-titoli: font-family: 'Raleway', sans-serif;
+    --font-family-paragrafi: font-family: 'Raleway', sans-serif;
+    --main-bg-color: #EB2126;
+    --main-bg-body: #4B4B6B;
+    --colore-principale: #cacaca;
+    --colore-titoli:#022742;
+    --dim-base: 400px;
+} */
+
+
+
+.titoloPrincipale{
+    color: var(--colore-titoli);
+}
+
+.sottotiloDue{
+    color: var(--colore-titoli);
+}
+
+body{
+    background-color: var(--main-bg-body);
+}
+
+
+.box{
+    width: var(--dim-base);
+    height: var(--dim-base);
+    color: var(--colre-testo);
+    font-family: var(--font-family-paragrafi);
+    background-color: var(--main-bg-color);
+}
+
+.titolo{
+    color: var(--colore-titoli);
+    font-family: var(--font-family-titoli);
+}
