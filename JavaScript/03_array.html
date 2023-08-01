@@ -78,6 +78,34 @@
         num_es.push(+prompt("Inserisci un numero"))
         console.log(num_es[0])
 
+        //Trasformare una string ain un array
+        let testo = "1,4,7,5,3"
+        let ar_testo = testo.split(",")
+        console.log(ar_testo)
+
+        let alunni_testo = "Michele Davide Paolo Marco"
+        let ar_alunni = alunni_testo.split(" ")
+        console.log(ar_alunni)
+
+        /*
+        Chiede di inserire dei numeri divisi da uno spazio. Fare la somma dei numeri inseriti
+        */
+
+        let numeri_es = prompt("Inserisci i numeri dividi i numeri con uno spazio")
+        let ar_nuneri = numeri_es.split(" ")
+
+        console.log(ar_nuneri)
+
+        //Vado a fare la somma
+        let somma_es = 0;
+
+        ar_nuneri.forEach(n =>{
+            somma_es += Number(n)
+        })
+
+        console.log("La somma è: " + somma_es)
+
+
 
     </script>  
 </body>
