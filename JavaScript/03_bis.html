@@ -27,7 +27,16 @@
 
         //Standard per ascoltare il click su un pulsante
         btn.addEventListener("click", ()=>{
-            ris.innerHTML = typeof(numeri.value)
+            //1 salvo i valori inseriti nel campo input nell'array che creo
+            let ar_numeri = numeri.value.split(" ")
+            
+            let somma = 0 //Ricordo la somma totale
+
+            ar_numeri.forEach(el => {
+                somma += Number(el)
+            });
+
+            ris.innerHTML = "La somma totale è: " +somma
         })
 
     </script>
