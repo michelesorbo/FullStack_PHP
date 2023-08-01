@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+
+    <script>
+        let nome = "Claudio" //Una variabile un nome
+        let nomi = ["Claudio", "Michele", "Davide", "Maria", "Vincenzo", "Giuseppe", "Mario","Massimo"] //Array di stringhe
+        let misto = ["Ciao", 32, true, [3,true,"Michele"], 24] //Array Misto
+        let ar_vuoto = [] //Array vuoto
+
+        console.log(misto[3][2])
+
+        console.log(nomi[2])
+
+        //Modificare elementi di un Array
+        nomi[2] = "Loredana"
+        console.log(nomi[2])
+
+        //Conoscere la lunghezza di un array
+        console.log(nomi.length) //Restituisce il numero di elementi dell'array
+        //Scrivere l'ultimo elemento di un array
+        console.log(nomi[nomi.length-1]) //Stampo sempre l'ultimo elemento dell'array
+        
+        
+        //Come inserire elementi in un array
+        nomi.push("Errico") //Inserisco l'elemento nell'array in ultimaposizione
+        console.log(nomi)
+        nomi.push("Federica", "Lucia", 4)
+        console.log(nomi)
+
+        nomi.unshift("Vittorio", 56) //Inserisco l'elemento all'iniizo dell'array
+        console.log(nomi)
+
+        //Come si elimina un elemento in un array
+        nomi.pop() //Elimina l'ultimo elemnto dell'array
+        console.log(nomi)
+
+        nomi.shift()//Elimina il primo elemento di un array
+        console.log(nomi)
+
+        //Come stampare tutti gli elementi di un array  metodo forEach
+        nomi.forEach(el => {
+            console.log(el)
+        })
+
+        let numeri = [1,4,3,56,7,8]
+
+        numeri.forEach(numero =>{
+            console.log(numero)
+        })
+
+        console.log("Stampa doppio")
+        //es restituire il doppio per ogni singolo numero presente nell'array
+        numeri.forEach(n =>{
+            console.log(n+n)
+        })
+
+        console.log("Fomma elemneti array numerico")
+
+        let somma = 0
+
+        numeri.forEach(n =>{
+            somma += n //somma = somma + n
+        })
+
+        console.log("La somma dei valori è: " + somma)
+
+        //chiedere 3 numeri e salvarli in un array
+        //Dopo stampare la somma dei numeri utilizzando l'array e il forEach
+        //Ricodatevi che il prompt ritorna string, usre uno dei metodi visti prima
+
+        let num_es = []
+        num_es.push(+prompt("Inserisci un numero"))
+        console.log(num_es[0])
+
+
+    </script>  
+</body>
+</html>

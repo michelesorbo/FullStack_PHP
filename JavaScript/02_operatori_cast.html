@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operatori e Cast</title>
+</head>
+<body>
+    <script>
+        //Operatori di incremento e matematici
+        /*
+        + Somma Es: 2 + 2 = 4
+        - Sottrazione Es: 4 - 2 = 2
+        * Moltiplicazione Es: 5 * 5 = 25
+        / Divisione Es: 40 / 2 = 20 (Attenzione alle divisioni per 0)
+        % Modulo (o "Resto della divisione") Es: 35 % 3 = 2
+        ++ Incremento Es: i = 9; i++ > 10
+        -- Decremento Es: i = 9; i-- > 8
+        */
+
+        let n1 = 5
+        let n2 = 2
+        let n3 = "5" //Stringa
+
+        //Operatore + SOMMA
+        let somma = n1+n2 
+        console.log("La somma è: " + somma)
+
+        console.log(n1+n3)
+
+        //Sottrazione
+        let sot = n1-n2
+        console.log("La sottrazione è: " + sot)
+
+        //Moltiplicazione
+        let molt = n1*n2
+        console.log("La moltiplicazione è: " + molt)
+
+        //Divisione
+        let div = n1 / n2 //Attenzione a non dividere per 0
+        console.log("La divisione è: " + div)
+
+        //Operatore Modulo, resto della divisione es 35 % 3 = 2
+        let modulo = 35%3
+        console.log("Sono il modulo: " + modulo)
+
+        //Incrementare di 1 una variabile, l'incremento o decremenmto della variabile è definitivo
+        let incremento = 4
+        incremento++ //Incremneto il valore della variabile di 1
+        console.log(incremento)
+        //console.log(++incremento)
+
+        //Decremento di 1
+        let decremenmto = 4
+        decremenmto--
+        console.log(decremenmto)
+
+        //Come conoscere il tipo di una variabile
+        let str = "testo"
+        let numero = 3
+        let bol = true
+        console.log(typeof(str))
+        console.log(typeof(numero))
+        console.log(typeof(bol))
+
+
+        /*
+        Chiedere due numeri all'utente tramite prompt e fare la somma dei numeri
+        */
+
+        let es_n1 = Number(prompt("Inserisci il primo numero")) //Prendo il primo parametro direttamente numerico
+        let es_n2 = +prompt("Inserisci il secondo numero") //Prompt accetta solo numeri e ritorna un Number
+        //DEvo trasformare il valore testuale in valore numerico. Lo faccio con l'operazione di CAST
+        somma = Number(es_n1) + Number(es_n2) 
+        //console.log(typeof(es_n1))
+        console.log("La somma dei numeri inseriti è: " + somma)
+
+        let n4 = "5"
+        console.log(typeof(Number(n4)))
+        console.log(typeof(String(n1)))
+    </script>
+</body>
+</html>
