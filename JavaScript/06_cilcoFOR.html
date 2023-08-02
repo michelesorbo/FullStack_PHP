@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ciclo For</title>
 </head>
+
 <body>
 
     <select id="sel"></select>
     <p id="ris1"></p>
-    
+    <p id="ris2"></p>
+
     <script>
         const sel = document.getElementById("sel")
         const ris1 = document.getElementById("ris1")
+        const ris2 = document.getElementById("ris2")
         //Il for serve a ripetere un blocco di codice un numero definito di volte
 
         //Es stapare i primi 10 numeri
@@ -21,9 +25,9 @@
         // console.log(3)
 
         //Condizione di inizio; condizione di uscita; tipo di incremento
-        for(let i = 1; i <= 31; i++){
+        for (let i = 1; i <= 31; i++) {
             console.log(i)
-            sel.innerHTML += "<option value='"+i+"'>"+i+"</option>"
+            sel.innerHTML += "<option value='" + i + "'>" + i + "</option>"
         }
 
         /*Stampare in ris 1 la tabellina del 2
@@ -33,7 +37,171 @@
         2 X 10 = 20
         */
 
+        for (let i = 0; i <= 10; i++) {
+            ris1.innerHTML += i + " x 2 = " + (i * 2) + "<br>"
+            //console.log(i)
+        }
+
+        //Scorrere array con for
+        let ar = [1, 4, 65, "Ciao", 34]
+        // console.log(ar[0])
+        // console.log(ar[1])
+        // console.log(ar[2])
+
+        for (let i = 0; i < ar.length; i++) {
+            console.log(ar[i])
+        }
+
+        //Stampo ar al contrario
+        for (let i = ar.length - 1; i >= 0; i--) {
+            console.log(ar[i])
+        }
+
+        //Stampo da 10 a 1
+        // for(let i = 10; i >= 1; i++){
+        //     //Crea LOOP non eseguire
+        // }
+
+        //Generare numero random 
+        //Math.random() genera un numero casuale tra 0,0000000000 e 1
+        //Math.floor() serve a prendere solo i numeri interi
+        
+        // let numero_casuale = Math.floor(Math.random() * 90) + 1 //Genre numeri casuali tra 1 e 90
+        // console.log("Casuale " + numero_casuale)
+
+        //Creare la ruota di Roma con 5 numeri casuali
+        let roma = [] //Popolo l'array con 5 numeri casuali 
+
+        for(let i = 1; i <= 5; i++){
+            let numero_casuale = Math.floor(Math.random() * 90) + 1 //Genre numeri casuali tra 1 e 90
+            console.log("Casuale " + numero_casuale)
+            roma.push(numero_casuale)
+        }
+
+        ris2.innerHTML = roma
+
+        //Fai la somma dei numeri e chiedere all'utente quanti numeri vuole sommare
+        //ES: Quanti numeri vuoi sommare? 5
+        //far vedere per 5 volte il prompt con "inserisci il 1° numero"
+        //Alla fine mostrare la somma dei numeri
+
+        /*
+        1) chiedere il quanti numeri sommare.
+        2) creare la varibile per ricordare la somma let somma = 0
+        3)impostare un for con fine il valore inserito dall'utente nel prompt
+        4) nel ciclo aggiornare la somma con il valore inserito nel prompt dall'utente somm += valore inserito
+        5) Finito il for stampare il risultato presente nella variabile somma
+        */
+       let numeri = prompt("Quanti numeri vuoi sommare?")
+
+       let somma = 0
+       let ricardaNumeri = []
+
+       for(let i = 1; i <= numeri; i++){
+        let n = prompt("Inserisci il "+i+"° numero")
+        somma += Number(n)
+        ricardaNumeri.push(n) //Modifica esercizio
+       }
+
+       console.log("La somma è: " + somma + " i numeri inseriti sono " + ricardaNumeri)
+
+
+       //Modifica l'esericio n1 in modo che posso ricordare i numeri inseriti
+
+       //Chiedere 5 numeri e dire se il numero inserito è pari o dispari qunti numeri sono pari e quanti sono dispari
+    // let pari = 0;
+    // let dispari = 0;
+
+    // for(let i = 1; i<=5; i++){
+    //     let n = +prompt("Dammi un numero")
+    //     if(n%2 == 0){
+    //         pari++;
+    //         console.log("Pari")
+    //     }else{
+    //         dispari++
+    //         console.log("Dispari")
+    //     }
+    // }
+
+    // console.log("Hai inserito "+pari+" numeri pare e "+dispari+" numeri dipari")
+
+
+
+
+
+    //Chiedere 3 numeri e stamparne il doppio
+
+    //Indovina il numero hai tre tentativi (Il numero da dindovinare è compreso tra 1 e 10)
+    // console.log(Math.floor(Math.random() * 10) + 1) //Serve ad avere numeri casuali da 1 a 10
+
+
+    // let numero_da_indovinare = Math.floor(Math.random() * 10) + 1
+    // console.log(numero_da_indovinare)
+
+    // for(let i = 1; i<=3; i++){
+    //     let num = +prompt("Inserisci il numero, hai tre tentativi questo è il "+i)
+    //     if(num == numero_da_indovinare){
+    //         console.log("Hai indovinato")
+    //         break; //fermare il ciclo for
+    //     }else{
+    //         console.log("Sabgliato")
+    //     }
+    // }
+
+
+    //Scrivere un programma che legge 5 numeri da tastiera e ne restituisce il minore
+    // let min; //Ricordo il valore più piccolo che trovo
+    // let n = +prompt("inserisci 3 numeri e ti dirò il minore")
+    // min = n;
+    // for(let i = 2; i <= 5; i++){
+    //     n = +prompt("inserisci un nuovo numero")
+    //     if(n < min){
+    //         min = n
+    //     }
+    // }
+
+    // console.log("Il valore minimo inseri è: "+min)
+
+
+
+
+    // Scrivere un programma che Lancia un numero di dadi a sei facce 
+    // scelto dall’utente, mostra i risultati e dice quante volte è uscito il 6 e a quale lancio
+
+    // let dadi = +prompt("Quanti dadi vuoi lanciare?")
+    // let sei = 0; //Vado a contare quante volte esce il numero 6
+
+    // for(let i = 1; i <= dadi; i++){
+    //     let lancio = Math.floor(Math.random() * 6) + 1
+    //     console.log(lancio)
+    //     if (lancio == 6) {
+    //         sei++
+    //     }
+    // }
+
+    //Versione con ricordo del lancio e somma toale dei lanci
+    // let dadi = +prompt("Quanti dadi vuoi lanciare?")
+    // let sei = []; //Vado a contare quante volte esce il numero 6
+    // let somma_dadi = 0
+
+    // for(let i = 1; i <= dadi; i++){
+    //     let lancio = Math.floor(Math.random() * 6) + 1
+    //     console.log(lancio)
+    //     somma_dadi += lancio
+    //     if (lancio == 6) {
+    //         sei.push(i) //Ricordo il numero del lancio in cui è uscito 6 come risultato del lancio
+    //     }
+    // }
+
+    // console.log("La somma totale dei lanci è: "+somma_dadi)
+    // console.log("Il sei è uscito "+sei.length+" volte")
+    // sei.forEach(n =>{
+    //     console.log("Al lancio n° "+n)
+    // })
+
+
     </script>
 
 </body>
+
 </html>
