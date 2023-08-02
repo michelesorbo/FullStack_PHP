@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="inp" value="Sono value"><button id="btn">Premi</button>
+    <p id="ris">Codice HTML</p>
+    
+
+    <script>
+
+        const inp = document.getElementById("inp")
+        const ris = document.getElementById("ris")
+        const btn = document.getElementById("btn")
+
+        console.log(inp.value)
+        ris.innerHTML = "<b>Sono JS che scrive</b>"
+
+        console.log(ris.innerHTML)
+
+        btn.addEventListener("click", ()=>{
+            ris.innerHTML = inp.value
+        })
+
+        let ar_alunni = ["Michele", "Davide", "Maria"]
+
+        console.log(ar_alunni)
+
+        console.log(ar_alunni.length)
+
+        ar_alunni[2] = "Loredana"
+
+        console.log(ar_alunni)
+
+        ar_alunni.push("Marco", "Giovanni") //Aggiungere elementi alla fine dell'array
+        ar_alunni.unshift("Francesco", "Miriam") //Aggiungo all'inizio
+        console.log(ar_alunni)
+
+        let ar_misto = [1,"Ciao",3]
+
+        //ar_misto.pop() //Elimina l'ultimo elemnto dell'array
+        ar_misto.shift() //Elimina il primo elemnto dell'array
+        console.log(ar_misto)        
+
+        //Come stampare tutti gli elementi dell'array
+        ar_alunni.forEach(el =>{
+            console.log(el)
+        })
+
+        //Come trasfomare una stringa in un array
+        let str = "Michele Stefano Davide"
+        let ar_str = str.split(" ")
+        console.log(ar_str)
+
+        let str1 = "1,43,6,78,90"
+        let ar_str1 = str1.split(",")
+        console.log(ar_str1)
+        //Fare la somma dei numeri nella stringa
+        let somma = 0
+        ar_str1.forEach(el =>{
+            somma += Number(el)
+        })
+
+        console.log("La somma è: " + somma)
+
+
+
+        
+
+    </script>
+
+</body>
+</html>

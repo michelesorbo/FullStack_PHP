@@ -7,6 +7,8 @@
 </head>
 <body>
 
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">Documentazione Array</a>
+
     <script>
         let nome = "Claudio" //Una variabile un nome
         let nomi = ["Claudio", "Michele", "Davide", "Maria", "Vincenzo", "Giuseppe", "Mario","Massimo"] //Array di stringhe
@@ -74,9 +76,9 @@
         //Dopo stampare la somma dei numeri utilizzando l'array e il forEach
         //Ricodatevi che il prompt ritorna string, usre uno dei metodi visti prima
 
-        let num_es = []
-        num_es.push(+prompt("Inserisci un numero"))
-        console.log(num_es[0])
+        // let num_es = []
+        // num_es.push(+prompt("Inserisci un numero"))
+        // console.log(num_es[0])
 
         //Trasformare una string ain un array
         let testo = "1,4,7,5,3"
@@ -91,20 +93,63 @@
         Chiede di inserire dei numeri divisi da uno spazio. Fare la somma dei numeri inseriti
         */
 
-        let numeri_es = prompt("Inserisci i numeri dividi i numeri con uno spazio")
-        let ar_nuneri = numeri_es.split(" ")
+        // let numeri_es = prompt("Inserisci i numeri dividi i numeri con uno spazio")
+        // let ar_nuneri = numeri_es.split(" ")
 
-        console.log(ar_nuneri)
+        // console.log(ar_nuneri)
 
         //Vado a fare la somma
-        let somma_es = 0;
+        // let somma_es = 0;
 
-        ar_nuneri.forEach(n =>{
-            somma_es += Number(n)
-        })
+        // ar_nuneri.forEach(n =>{
+        //     somma_es += Number(n)
+        // })
 
-        console.log("La somma è: " + somma_es)
+        // console.log("La somma è: " + somma_es)
 
+        //Eliminare un elemento ad un determinato indice
+        let ar_2 = [1,32,4,6]
+        ar_2.splice(1,1) //Indice di partenza elemnti da elminare e cosa inserire
+        console.log(ar_2)
+
+        let ar_3 = ["Michele", "Davide", "Loredana"]
+        ar_3.splice(1,1,"Francesco")
+        ar_3.splice(2,0,"Mario")
+        console.log(ar_3)
+
+        //Conoscere l'indice di un elemento nell'array
+        let ar_4 = ["Mario", "Francesco", "Giuseppe", "Carlo","Giuseppe"]
+        console.log(ar_4.indexOf("Giuseppe")) //Ritorna l'indice dell'elemento, -1 se non trova corrispondenza
+        console.log(ar_4.lastIndexOf("Giuseppe")) //Ritorna l'ultimo indice dell'elemnto cercato
+
+
+        //Ordinare un array
+        let ar_5 = [2,1,4,3,5]
+        let ar_5b =  ["Mario", "Francesco", "Giuseppe", "Carlo","Giuseppe"]
+        //Prima di stamparlo lo ordino, il metodo sort modifica gli elementi e indici dell'array
+        ar_5.sort() 
+        ar_5b.sort()
+        console.log(ar_5b)
+
+        //Invertire l'ordine di un array
+        let ar_6 = [3,6,8]
+        ar_6.reverse()
+        console.log(ar_6) 
+
+        //Trovare un elemento nell'array
+        let ar_7 = ["auto", "moto", "bici"]
+        console.log(ar_7.includes("moto")) //Ritorna true se trova l'elemento, false se non lo trova
+
+        //Dato un array numerico, stamparlo ordinato in modo decrescente es: 3,4,1,2 => 4,3,2,1
+        let ar_es1 = [6,3,9,7,1,2]
+
+        //Prima lo ordino
+        //ar_es1.sort()
+        //Poi lo capovolgo
+        //ar_es1.reverse()
+
+        ar_es1.sort().reverse()
+        console.log(ar_es1)
 
 
     </script>  

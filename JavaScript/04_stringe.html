@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stringhe</title>
+</head>
+<body>
+    
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank">Documentazione</a>
+    <script>
+
+        //Ogni stringa è vista come un array di caratteri
+        let str  = "Ciao dal corso di PHP"
+        console.log("La stringa è lunga " + str.length + " caratteri.") //Caratteri e spazzi compresi
+
+        console.log(str[0]) //Stampo il primo carattere
+        console.log(str.charAt(0)) //Uso il metodo charAt(<indice_della_lettere>)
+
+        //Stampare l'ultimo carattere
+        console.log(str.charAt(str.length-1))
+
+        //Trivare l'indice di partenza di una parola
+        console.log(str.indexOf("di"))
+
+        //Dividere una stringa
+        console.log(str.slice(5, 14)) //Indice di partenza, indice di fine. Se ometto la fine termina alla fine della stringa
+
+        let inizio = str.indexOf("dal")
+        let fine = str.indexOf("di")
+        console.log(str.slice(inizio,fine))
+
+        let str2 = "      Ciao Mondo      "
+        console.log(str2.length)
+        //Cancellare gli spazzi vuoti ad inizio e fine stringa
+        console.log(str2.trim().length)
+
+        //Cercare un occorrenza nelle stringa
+        console.log(str.includes("PHP"))
+
+        //Modifcare i caratteri da MAISCOLO a minuscolo
+        let str3 = "CIAO dal CORSO PHP"
+        console.log(str3.toLocaleLowerCase()) //Porto tutti i caratteri in minuscolo
+        console.log(str3.toLocaleUpperCase()) //Porto tutti i caratteri in MAIUSCOLO
+
+
+        //Creare un modo per scrivere la prima lettera di una stringa in Maiuscolo e il resto in minuscolo
+        //es: ciao mondo => Ciao mondo
+        let str_es1 = "ciao MONDO"
+
+        console.log(str_es1.charAt(0).toLocaleUpperCase() + str_es1.slice(1).toLocaleLowerCase())
+
+
+    </script>
+</body>
+</html>
