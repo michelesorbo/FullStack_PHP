@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esercizi IF</title>
 </head>
+
 <body>
     <p>
-        <h3>Esercizio 1</h3>
-        <p>Inserire un solo numero nella casella di input e ti dirò se è pari o dispari</p>
-        <input type="text" id="inp1"><button id="btn1">Esercizio 1</button>
-        <p id="ris1"></p>
+    <h3>Esercizio 1</h3>
+    <p>Inserire un solo numero nella casella di input e ti dirò se è pari o dispari</p>
+    <input type="text" id="inp1"><button id="btn1">Esercizio 1</button>
+    <p id="ris1"></p>
     </p>
 
     <script>
@@ -18,19 +20,57 @@
         const inp1 = document.getElementById("inp1")
         const btn1 = document.getElementById("btn1")
         const ris1 = document.getElementById("ris1")
-        
-        btn1.addEventListener("click", ()=>{
+
+        btn1.addEventListener("click", () => {
             // ris1.innerHTML = inp1
             // console.log(inp1)
             //Controllo se è pari o dispari
-            if(Number(inp1.value)%2 == 0){
+            if (Number(inp1.value) % 2 == 0) {
                 ris1.innerHTML = "Numero Pari"
-            }else{
+            } else {
                 ris1.innerHTML = "Numero Dispari"
             }
-            
+
         })
     </script>
-    
+
+<hr>
+
+    <p>
+    <h3>Esercizio 2</h3>
+    <p>Verifica se posso guidare.<br>
+        Chiedi all'utente la sua età e la sua nazionalità<br>
+        L'utente può guidare se ha più di 18 anni ed ha nazionalità Italaiana</p>
+    Età: <input type="text" id="eta"><br>
+    Nazionalità:
+    <select id="naz">
+        <option>--Seleziona la tua Nazionalità--</option>
+        <option value="italiana">Italaiana</option>
+        <option value="straniera">Straniera</option>
+    </select><br>
+    <button id="btn2">Esercizio 2</button>
+    <p id="ris2"></p>
+    </p>
+
+    <script>
+        //Esercizio 1
+        const eta = document.getElementById("eta")
+        const naz = document.getElementById("naz")
+        const btn2 = document.getElementById("btn2")
+        const ris2 = document.getElementById("ris2")
+
+        btn2.addEventListener("click", () => {
+            let str = "ciao"
+        
+            if(eta.value > 17 && naz.value.toLocaleLowerCase() == "italiana"){
+                ris2.innerHTML = "Puoi guidare"
+            }else{
+                ris2.innerHTML = "Non puoi guidare"
+            }
+        })
+    </script>
+
+
 </body>
+
 </html>

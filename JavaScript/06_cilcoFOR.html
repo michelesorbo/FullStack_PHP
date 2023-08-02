@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo For</title>
+</head>
+<body>
+
+    <select id="sel"></select>
+    <p id="ris1"></p>
+    
+    <script>
+        const sel = document.getElementById("sel")
+        const ris1 = document.getElementById("ris1")
+        //Il for serve a ripetere un blocco di codice un numero definito di volte
+
+        //Es stapare i primi 10 numeri
+        // console.log(1)
+        // console.log(2)
+        // console.log(3)
+
+        //Condizione di inizio; condizione di uscita; tipo di incremento
+        for(let i = 1; i <= 31; i++){
+            console.log(i)
+            sel.innerHTML += "<option value='"+i+"'>"+i+"</option>"
+        }
+
+        /*Stampare in ris 1 la tabellina del 2
+        2 x 1 = 2
+        2 x 2 = 4
+        ....
+        2 X 10 = 20
+        */
+
+    </script>
+
+</body>
+</html>

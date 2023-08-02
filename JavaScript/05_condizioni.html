@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le condizioni</title>
 </head>
+
 <body>
     <script>
         //Istruzione IF (In italiano SE)
@@ -26,15 +28,15 @@
         let n1 = 4
         let n2 = 4
 
-        if(n1 > n2){ //Se la regola è vera
+        if (n1 > n2) { //Se la regola è vera
             console.log("N1 Maggiore")
-        }else{
+        } else {
             console.log("N1 Non è maggiore")
         }
 
-        if(n1 >= n2){
+        if (n1 >= n2) {
             console.log("N1 Maggiore")
-        }else{
+        } else {
             console.log("N1 Non è maggiore")
         }
 
@@ -42,31 +44,31 @@
         n1 = 4
         n2 = "4"
 
-        if(n1 == n2){
+        if (n1 == n2) {
             console.log("SI")
-        }else{
+        } else {
             console.log("NO")
         }
 
-        if(n1 === n2){
+        if (n1 === n2) {
             console.log("SI")
-        }else{
+        } else {
             console.log("NO")
         }
 
-        if(n1 !== n2){
+        if (n1 !== n2) {
             console.log("Diverso")
-        }else{
+        } else {
             console.log("Uguale")
         }
-        
+
         let str = "michele mauro davide"
 
         console.log(str.includes("michele"))
 
-        if( !str.includes("mario") ){
+        if (!str.includes("mario")) {
             console.log("Elemnto non trovato")
-        }else{
+        } else {
             console.log("Elemnto trovato")
         }
 
@@ -74,33 +76,33 @@
         //Dire se un numero è pari o dispari
         let n_es1 = 3
 
-        if(n_es1%2 == 0){
+        if (n_es1 % 2 == 0) {
             console.log("Numero Pari")
-        }else{
+        } else {
             console.log("Numero Dispari")
         }
 
 
-        let parola = prompt("Inserisci una parola massimo 5 caratteri")
+        // let parola = prompt("Inserisci una parola massimo 5 caratteri")
 
-        if(parola.length > 6){
-            alert("Hai inserito troppi caratteri")
-        }
+        // if (parola.length > 6) {
+        //     alert("Hai inserito troppi caratteri")
+        // }
 
         let nome = "Mario"
 
-        if(nome == "Davide"){
+        if (nome == "Davide") {
             console.log("Sei amministratore")
-        }else if(nome == "Michele"){
+        } else if (nome == "Michele") {
             console.log("Sei utente")
-        }else if(nome == "Claudio"){
+        } else if (nome == "Claudio") {
             console.log("Sei grafico")
-        }else{
+        } else {
             console.log("non sei registrato")
         }
 
         //Deprecato - riscrivo if con scwitch case
-        switch(nome){
+        switch (nome) {
             case "Davide":
                 console.log("Sei amministratore")
                 break
@@ -132,8 +134,67 @@
             Input: scelta = 7
             Output: Dolce non disponibile
         ***********************************************************/
-        let scelta = prompt("MENU:\n1)Tiramisù\n2)Torta della Nonna")
+
+        // let dolce = prompt("MENU:\n1. Tiramisù\n2. Torta della Nonna\n3. Cheescake alla Nutella\n4. Macedonia")
+
+        // if (dolce == 1) {
+        //     //alert("Hai scelto Tiramisù")
+        //     console.log("Hai scelto Tiramisù")
+        // } else if (dolce == 2) {
+        //     console.log("Hai scelto Torta della nonna")
+        // } else if (dolce == 3) {
+        //     console.log("Hai scelto Cheesecake alla nutella")
+        // } else if (dolce == 4) {
+        //     console.log("Hai scelto Macedonia")
+        // } else {
+        //     console.log("Scelta non disponibile")
+        // }
+
+        //Gli operatori logici
+        /*
+        && AND operato e tutte le condizioni devono essere vera
+        || OR almeno una condizione deve essere vera
+        */
+
+        n1 = 3
+        nome = "Maria"
+        if (n1 > 5 && nome == "Maria") {
+            console.log("OK")
+        }else{
+            console.log("NO")
+        }
+
+        if(n1 > 5 || nome == "Maria"){
+            console.log("OK")
+        }else{
+            console.log("NO")
+        }
+
+        //Operatore ternario
+        //Assegnare un valora ad una variabile in base ad una condizione
+
+        //Es assegnare ad y il positivo di x
+        //Es x = 3 => y = 3 --> x = -3 => y = 3
+
+        //Y valore assoluto di x
+        let x = -3
+        let y = x > 0 ? x : -x //Condizione ? caso vero : caso falso
+        
+        // if(x > 0){
+        //    y = x
+        // }else{
+        //    y = -x
+        // }
+
+        console.log(y)
+
+        //Es applicare uno sconto del 5% se la somma è superiore a 10.000 altrimenti 2%
+        let prezzo = 1000
+        let sconto = prezzo > 5000 ? (prezzo*5)/100 : (prezzo*2)/100
+        console.log(sconto)
+
 
     </script>
 </body>
+
 </html>
