@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le condizioni</title>
+</head>
+<body>
+    <script>
+        //Istruzione IF (In italiano SE)
+        //Esegui il blocco di codice se la condizzione è rispettata
+
+        //Operatori di comparazione
+        /*
+        < Minore Es: 20 < 10 (FALSE)
+        > Maggiore Es: 20 > 10 (TRUE)
+        <= Minore Uguale 20 <= 20 (TRUE)
+        >= Maggiore Ugulae
+        == Equivalente (Da non confondere con = che sta per assegnazione) Es: 8 == 10 (FALSE)
+        === Identico, stesso tipo e stesso valore
+        != Non Equivalente
+        !== Non Idedentico
+        ! negazione
+        */
+
+        let n1 = 4
+        let n2 = 4
+
+        if(n1 > n2){ //Se la regola è vera
+            console.log("N1 Maggiore")
+        }else{
+            console.log("N1 Non è maggiore")
+        }
+
+        if(n1 >= n2){
+            console.log("N1 Maggiore")
+        }else{
+            console.log("N1 Non è maggiore")
+        }
+
+        //Euivalente
+        n1 = 4
+        n2 = "4"
+
+        if(n1 == n2){
+            console.log("SI")
+        }else{
+            console.log("NO")
+        }
+
+        if(n1 === n2){
+            console.log("SI")
+        }else{
+            console.log("NO")
+        }
+
+        if(n1 !== n2){
+            console.log("Diverso")
+        }else{
+            console.log("Uguale")
+        }
+        
+        let str = "michele mauro davide"
+
+        console.log(str.includes("michele"))
+
+        if( !str.includes("mario") ){
+            console.log("Elemnto non trovato")
+        }else{
+            console.log("Elemnto trovato")
+        }
+
+        //Operatore modulo % per vedere se un numero è pari, il resto della divisione per due deve essere 0
+        //Dire se un numero è pari o dispari
+        let n_es1 = 3
+
+    </script>
+</body>
+</html>

@@ -34,6 +34,8 @@
         console.log(str2.length)
         //Cancellare gli spazzi vuoti ad inizio e fine stringa
         console.log(str2.trim().length)
+        //.trimStart() elimina solo gli spazzi all'inizio della stringa
+        //.trimEnd() elimina solo gli spazzi alla fine della stringa
 
         //Cercare un occorrenza nelle stringa
         console.log(str.includes("PHP"))
@@ -49,6 +51,15 @@
         let str_es1 = "ciao MONDO"
 
         console.log(str_es1.charAt(0).toLocaleUpperCase() + str_es1.slice(1).toLocaleLowerCase())
+
+        //Modificare elementi nella stringa
+        let str4 = "Benvenuto nel corso di PHP. PHP è il linguaggio del futuro."
+        //Sostituire solo la prima occorrenza
+        console.log(str4.replace("PHP", "Python")) //Valore da cercare, valore da sostituire
+        console.log(str4.replaceAll("PHP", "Python"))//Cambia tutte le occorrenze
+
+        let str4_a = "Ciao da php"
+        console.log(str4_a.replaceAll(" ", ""))
 
 
     </script>
