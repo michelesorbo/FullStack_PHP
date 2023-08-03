@@ -152,6 +152,41 @@
         console.log(ar_es1)
 
 
+        //Array Associativi (Dizionari)
+
+        let corsista = {
+            nome : "Davide",
+            cognome : "Guidi",
+            corso : "PHP",
+            eta : "25"
+        }
+
+        let corsista2 = {
+            nome : "Mario",
+            cognome : "Rossi",
+            corso : "JAVA",
+            eta : "28"
+        }
+
+        console.log(corsista)
+        console.log(corsista["nome"])
+
+        //Stampare tutto il dizionario
+        // corsista.forEach(el =>{
+        //     console.log(el)
+        // })
+
+        //Per stampare i dizionari si usa il "for in" o il "for of"
+        console.log("Stampa FOR IN")
+        for(el in corsista){
+            console.log(corsista[el])
+
+        }
+
+
+        let ar_corsisti = [corsista,corsista2]
+
+        console.log(ar_corsisti[1]["nome"])
     </script>  
 </body>
 </html>

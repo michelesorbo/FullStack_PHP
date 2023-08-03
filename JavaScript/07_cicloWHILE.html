@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo WHILE</title>
+</head>
+<body>
+    
+    <script>
+        //FOR ripete un numero finito di volte
+        //WHILE ripete finchè non accade qualcosa.
+
+        //Tutti i FOR possono essere trasformanti in WHILE, ma non tutti i WHILE possono essere trasformati in FOR
+
+        //Stampa di 10 numeri
+        for(let i = 1; i <= 10; i++){
+            console.log(i)
+        }
+
+        //Trasformo il for in WHILE
+
+        let i = 1 //1° passo del FOR, creo l'indice e lo inizializzo
+
+        while(i <= 10){ //2° passo del FOR, la confizione di uscita
+            //i++
+            console.log(i)
+            i++ //3° passo del FOR incremneto l'indice
+        }
+
+        //Fare la somma finchè non inserisci 0
+
+        
+        let somma = 0
+        
+        // let num = +prompt("Inserissci un numero, 0 per terminare")
+        // while(num != 0){
+        //     somma += num
+        //     num = +prompt("Inserisci un nuovo numero, 0 per terminare")
+        // }
+
+        // alert("La somma totale è: " + somma)
+
+        let num
+        do{
+            num = +prompt("inserisci un numero, 0 per terminare")
+            somma += num
+        }while(num != 0)
+
+        alert("La somma totale è: " + somma)
+
+        //Inserisci in un array alunni i nomi degli alunni passati da prompt. 
+        //Terminare quando si inserisce fine
+        //Stampare gli alunni inseriti in una lista ordinata
+
+
+    </script>
+</body>
+</html>
