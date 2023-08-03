@@ -10,12 +10,33 @@
     Terminare quando si inserisce fine<br>
     Stampare gli alunni inseriti in una lista ordinata</p>
 
-    <ol>
-        <li>Nome 1</li>
-        <li>Nome 2</li>
+    <ol id="lista">
     </ol>
+
     <script>
-        
+        const lista = document.getElementById("lista")
+
+        //lista.innerHTML = "<li>Nome 1</li>"
+
+        let ar_alunni = [] //Creao array vuoto per ricordae gli alunni
+
+        let alunno //Ricordo il valore passato dall'utente
+
+        do{
+            alunno = prompt("Inserisci un alunno, fine per terminare")
+            //Per non far inserire fine nell'array
+            if(alunno != "fine"){
+                ar_alunni.push(alunno)
+            }
+        }while(alunno != "fine")
+
+        console.log(ar_alunni)
+
+        //Vado a stampare gli alunni sulla pagina
+        ar_alunni.forEach(a =>{
+            lista.innerHTML += "<li>"+a+"</li>"
+        })
+
     </script>
 </body>
 </html>

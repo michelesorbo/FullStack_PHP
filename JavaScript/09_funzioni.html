@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funzioni</title>
+</head>
+<body>
+
+    <input type="text" id="inp">
+    <button id="btn">Saluta</button>
+    <script>
+        const btn = document.querySelector("#btn")
+        const inp = document.querySelector("#inp")
+        
+        btn.addEventListener("click", controllaInp)
+
+        inp.addEventListener("keyup", soloLettere)
+
+        function controllaInp(){
+            if(isNaN(inp.value)){
+                console.log("Testo")
+            }else{
+                console.log("Numero")
+            }
+        }
+
+        //Fare una funzione che consente di inserire solo lettere in una casella
+        //Se inserisco un numero non erra stampato nella casella
+
+        function soloLettere(){
+            //let str = inp.value //Ricordo il testo scritto in inp in una variabile
+            //console.log(str[str.length-1])
+            //Controllo se l'ultina cosa inserita è un numero
+            if(!isNaN(inp.value[inp.value.length-1])){
+                alert("Solo lettere")
+                inp.value = str.substring(0, inp.value.length-1)
+            }
+        }
+
+        //Dichiarare una funzione su usa il comando function
+        //Funzione senza parametri e senza ritorno
+        function saluta(){
+            console.log("Ciao Mondo!!!")
+        }
+
+        //Le funzioni devo essere chiamate "INVOCATE" per poter essere eseguite
+        saluta()
+        saluta()
+        saluta()
+
+        //funzione con Parametri
+        function salutaNome(nome){
+            console.log("Ciao da " + nome)
+        }
+
+        salutaNome("Davide")
+        salutaNome("Giuseppe")
+        salutaNome("Loredana")
+
+        let nome = "Michele"
+        salutaNome(nome)
+
+        //Fuonzioni con ritorno
+        function dividi(a,b){
+            if(b == 0){
+                return "Non posso dividere per 0"
+            }else{
+                return a/b
+            }
+        }
+
+        let divi = dividi(3,0)
+        console.log(divi)
+        console.log(dividi(4,2))
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Selettori</title>
+</head>
+<body>
+
+    <h1 id="titolo">Titolo della pagina</h1>
+    <div id="box">Sono il div</div>
+    <p>Sono un paragrafo</p>
+    <h2 class="sub_title">Sono un sotto paragrafo</h2>
+    <p>Sono il secondo paragrafo</p>
+    <p>sono p3</p>
+    <p>sono p4</p>
+    <input type="text" id="inp" ><br>
+    <button class="btn">Nascondi titolo</button>
+    <button id="btn2">Colora paragrafi</button>
+
+    <script>
+        const titolo = document.getElementById("titolo") //Utilizzato ma vecchio
+        const box = document.querySelector("#box") //prendo ID
+        const sub_title = document.querySelector(".sub_title") //prendo la classe
+        //const tag_p = document.querySelector("p") //Prendo il primo tag p della pagina
+        const pars = document.querySelectorAll("p")
+        const btn = document.querySelector(".btn")
+        const btn2 = document.querySelector("#btn2")
+        const inp = document.querySelector("#inp")
+
+        //tag_p.innerHTML = "Ciao da JS"
+        btn.addEventListener("click", ()=>{
+            if(titolo.style.display == "none"){
+                titolo.style.display = ""
+                btn.innerHTML = "Nascondi titolo"
+            }else{
+                titolo.style.display = "none"
+                btn.innerHTML = "Mostra titolo"
+            }
+        })
+
+        console.log(pars)
+
+        btn2.addEventListener("click", ()=>{
+            pars.forEach(p =>{
+            p.style.color = "red"
+        })
+        })
+
+
+        //Stampo subito quello che scrivi
+        inp.addEventListener("keyup", ()=>{
+            console.log(inp.value)
+        })
+
+
+    </script>
+    
+</body>
+</html>
