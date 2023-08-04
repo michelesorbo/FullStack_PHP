@@ -1,4 +1,5 @@
 <a href="https://www.w3schools.com/php/php_ref_string.asp" target="_blank">Documentazione</a>
+<a href="https://www.php.net/manual/en/ref.strings.php" target="_blank">PHP manual</a><br>
 <br>
 <?php
 
