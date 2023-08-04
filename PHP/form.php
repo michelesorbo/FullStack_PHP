@@ -19,6 +19,9 @@
 
     ?>
 
+    <h1></h1>
+    <input type="text">
+
     <form method="post" action="form_ricevi.php">
 
     Nome: <input type="text" name="nome"><br>
