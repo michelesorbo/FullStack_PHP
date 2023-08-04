@@ -31,8 +31,9 @@ $mail_corpo = "Qusto messaggio è una prova per testare l'invio della mail";
 //E posso definire i campi Cc, Bcc, ReplayTo e X-Mailer
 $mail_headers = "From: " . $nome_mittente . "<" . $mail_mittente . ">\r\n";
 $mail_headers .= "Replay-TO: " . $mail_mittente . "\r\n"; //+= di JS
-$mail_headers .= "X-Mailer: PHP/" . phpversion();
-
+//$mail_headers .= "X-Mailer: PHP/" . phpversion();
+$mail_headers .= "MIME-Version 1.0 \r\n";
+$mail_headers .= "Content-type: text/html; charset=iso-8859-1 \r\n";
 //Possiamo inviar ela mail
 if(mail($mail_destinatario, $mail_oggetto, $mail_corpo, $mail_headers)){
     echo "Mail inviata";
