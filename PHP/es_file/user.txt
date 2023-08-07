@@ -1,9 +1,1 @@
-davide 1234
-michele admin1234
-ale 1234
-utente1 1234
-utente2 1234
-utente3 1234
-utente4 1234
-ugo 1234
-mario 81dc9bdb52d04dc20036dbd8313ed055
+michele 8a94bdfc825df46f880854f41fee346b
