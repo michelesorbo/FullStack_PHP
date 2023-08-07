@@ -5,3 +5,5 @@ utente1 1234
 utente2 1234
 utente3 1234
 utente4 1234
+ugo 1234
+mario 81dc9bdb52d04dc20036dbd8313ed055
