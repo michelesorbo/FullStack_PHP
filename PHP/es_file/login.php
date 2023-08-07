@@ -96,6 +96,15 @@
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Entra</button>
                 <p class="mt-5 mb-3 text-muted">&copy; 2017–2023</p>
             </form>
+            <?php if(isset($_GET["esito"]) && $_GET["esito"] == 1): ?>
+                <div class="alert alert-danger" role="alert">
+                    Username non trovata
+                </div>
+            <?php elseif(isset($_GET["esito"]) && $_GET["esito"] == 2): ?>
+                <div class="alert alert-danger" role="alert">
+                    Password Errata
+                </div>
+            <?php endif; ?>
         </main>
 
 
