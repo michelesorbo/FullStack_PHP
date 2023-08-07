@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espressioni Regolari</title>
+    <style>
+        input{
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .esatto{
+            border: 2px solid green;
+        }
+
+        .errato{
+            border: 2px solid red;
+        }
+    </style>
 </head>
 <body>
     <p>W3School <a href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp">Link</a></p>
@@ -42,6 +55,24 @@
         const cap = document.querySelector("#cap")
         const cf = document.querySelector("#cf")
         const btn = document.querySelector("#btn")
+
+        let rx_cap = /^[0-9]{5}$/ //Regola per il CAP
+        let rx_cf = //Codice Fiscale
+
+        //Testiamo la regola
+        btn.addEventListener("click", ()=>{
+            //Testo regola CAP
+            //console.log(rx_cap.test(cap.value)) //Vedo il tipo di ritorno del metodo test
+            if(rx_cap.test(cap.value)){
+                console.log("CAP OK")
+                cap.className = "esatto"
+            }else{
+                console.log("CAP Fallito")
+                cap.className = "errato"
+            }
+        })
+
+
     </script>
 
 
