@@ -34,15 +34,18 @@
         </form>
 
         <!-- mostro ok se è settata la variabile get esito -->
-        <?php if(isset($_GET["esito"])): ?>
+        <?php if(isset($_GET["esito"]) && $_GET["esito"] == 1): ?>
             <div class="alert alert-success" role="alert">
                 Utente inserito correttamente
             </div>
+        <?php elseif (isset($_GET["esito"]) && $_GET["esito"] == 2): ?>
+            <div class="alert alert-danger" role="alert">
+                Nome utente già presente
+        </div>
         <?php endif; ?>
             
         
     </div>
-    
     <!-- JS BootStrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

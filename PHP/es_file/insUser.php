@@ -9,6 +9,9 @@ echo $_POST["pwd"];
 
 $file = "user.txt"; //Ricordo il nome del file da usare e lo salvo in una variabile
 
+//Prima di scrivere il nuovo utente controllare se il nome inserito è già presente nel file
+
+
 //Scrivo i nominativi sul file
 file_put_contents($file, pulisciTesto($_POST["user"]). " ". $_POST["pwd"]."\n", FILE_APPEND);
 
