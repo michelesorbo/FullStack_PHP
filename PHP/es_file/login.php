@@ -1,3 +1,9 @@
+<?php 
+if(isset($_COOKIE["login"]) && $_COOKIE["login"] == "ok"){
+    header('Location: dashboard.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -75,25 +81,25 @@
     <body class="text-center">
 
         <main class="form-signin">
-            <form method="post" action="lgoin_controllo.php">
+            <form method="post" action="lgoin_controllo.php" id="loginForm" onsubmit="return validaForm()">
                 <img class="mb-4" src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
                 <h1 class="h3 mb-3 fw-normal">Loggati nel sito</h1>
 
                 <div class="form-floating">
-                    <input type="text" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">User Name</label>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="User Name">
+                    <label for="username">User Name</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" name="pwd" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+                    <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Password">
+                    <label for="pwd">Password</label>
                 </div>
 
                 <div class="checkbox mb-3">
                     <label>
-                        <input type="checkbox" value="remember-me"> Ricordami
+                        <input type="checkbox" name="ricordami" id="cookie" value="remember-me"> Ricordami
                     </label>
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Entra</button>
+                <button class="w-100 btn btn-lg btn-primary" id="btn" type="submit">Entra</button>
                 <p class="mt-5 mb-3 text-muted">&copy; 2017–2023</p>
             </form>
             <?php if(isset($_GET["esito"]) && $_GET["esito"] == 1): ?>
@@ -110,6 +116,28 @@
 
         <!-- JS BootStrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <script>
+            const loginForm = document.querySelector("#loginForm")
+            const username = document.querySelector("#username")
+            const pwd = document.querySelector("#pwd")
+            const cookie = document.querySelector("#cookie")
+            const btn = document.querySelector("#btn")
+
+            //let rx_pwd = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/
+            let rx_nome = /^\D[^@#*.,-_]{2,20}$/ //Nome solo caratteri minimo 3 massimo 20
+
+
+            function validaForm(){
+                if(rx_nome.test(username.value) /*&& rx_pwd.test(pwd.value)*/){
+                    return true
+                }else{
+                    alert("Controlla i campi")
+                    //username.value = ""
+                    pwd.value = ""
+                    return false
+                }
+            }
+        </script>
     </body>
 
 </html>

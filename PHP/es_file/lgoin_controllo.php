@@ -23,6 +23,11 @@ foreach($ar_contenuto as $riga){
         //Controllo sel la password inserita è corretta
         if($ar_riga[1] == md5($_POST["pwd"])){
             echo "ok";
+            //Prima di cambiare pagina setto il cookie se la spunta su ricardami è stat selezionata
+            if(isset($_POST["ricordami"])){
+                setcookie("login","ok",time()+60*60*24*10);
+            }
+            
             header('Location: dashboard.php');
             break; //Fermo il ciclo forEach
         }else{
