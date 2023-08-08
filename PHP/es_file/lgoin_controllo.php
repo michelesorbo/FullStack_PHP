@@ -25,9 +25,10 @@ foreach($ar_contenuto as $riga){
             echo "ok";
             //Prima di cambiare pagina setto il cookie se la spunta su ricardami è stat selezionata
             if(isset($_POST["ricordami"])){
-                setcookie("login","ok",time()+60*60*24*10);
+                setcookie("login",generaToken(100),time()+60*60*24*10);
+                setcookie("username",pulisciTesto($_POST["username"]),time()+60*60*24*10);
             }
-            
+
             header('Location: dashboard.php');
             break; //Fermo il ciclo forEach
         }else{

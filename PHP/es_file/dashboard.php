@@ -6,6 +6,12 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>Benvenuto nella tua pagina persoanle</h1>
+    <h1>Benvenuto <?php if(isset($_COOKIE["username"])){
+        echo $_COOKIE["username"];
+    }else{
+        echo "Anonimo";
+    } ?></h1>
+
+    <a href="logout.php">LogOut</a>
 </body>
 </html>
