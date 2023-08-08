@@ -18,12 +18,13 @@ if($ris->num_rows > 0){
         $_SESSION["user_nome"] = $riga["nome"];
         $_SESSION["user_cognome"] = $riga["cognome"];
         $_SESSION["user_email"] = $riga["email"];
+        $_SESSION["ruolo"] = $riga["ruolo"];
         header('Location: dashboard.php');
     }else{
-        echo "Password Errata";
+        header('Location: login.php?esito=2');
     }
 }else{
-    echo "Utente non trovato";
+    header('Location: login.php?esito=1');
 }
 
 ?>

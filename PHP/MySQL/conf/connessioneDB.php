@@ -20,6 +20,6 @@ if($conn === false){
     die("Errore nello stabilire una connesisone con il DB: " . $conn->connect_error);
 }
 
-echo "Connesisone riuscita: " . $conn->host_info;
+//echo "Connesisone riuscita: " . $conn->host_info;
 
 ?>
