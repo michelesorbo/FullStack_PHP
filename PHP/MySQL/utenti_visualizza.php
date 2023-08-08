@@ -2,7 +2,7 @@
 
 session_start();
 
-if(!$_SESSION["user_id"] && $_SESSION["ruolo"] != "amministratore"){
+if(!$_SESSION["user_id"] || $_SESSION["ruolo"] != "amministratore"){
     header('Location: login.php');
 }
 
