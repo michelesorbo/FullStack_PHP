@@ -19,6 +19,5 @@ function generaToken($max){
     return $toke_str;
 }
 
-echo generaToken(100);
 
 ?>
