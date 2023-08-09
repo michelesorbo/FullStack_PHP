@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carica Immagine</title>
+</head>
+<body>
+
+    <!-- Ricorda di aggiungere emctype="multipart/form-data" altrimenti i file non vengono inviati -->
+    <form method="post" action="imgUpload.php" enctype="multipart/form-data">
+
+        inserisci immagine: <input type="file" name="file" accept="image/jpeg, image/png"><br>
+        <input type="submit" value="Carica Immagine">
+
+    </form>
+    
+</body>
+</html>
