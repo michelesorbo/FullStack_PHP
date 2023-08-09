@@ -57,7 +57,7 @@ include("conf/connessioneDB.php");
 
         <h1>Dattagli Utente <?php echo formattaTesto($riga["nome"]) . " ". formattaTesto($riga["cognome"])?></h1>
 
-        <form method="post" action="utente_modifica_update.php">
+        <form method="post" action="utente_modifica_update.php" enctype="multipart/form-data">
         <table class="table">
         <?php
 
@@ -82,10 +82,21 @@ include("conf/connessioneDB.php");
 
 
         echo "</select></td>";
+
+        //Controllo se è presente l'immagine di profilo
+        if(is_null($riga["img_profilo"])){
+            echo "<tr><td>Immagine Profilo</td><td><img src='img/default-user-image.png' class='img-thumbnail'></td></tr>";
+        }else{
+            $img_pro = $riga["img_profilo"]; //Salvo nella variabile per non dover concatenare
+            echo "<tr><td>Immagine Profilo</td><td><img src='img/$img_pro' class='img-thumbnail'></td></tr>";
+        }
+
+        echo "<tr><td>Aggiorna Immagine di Profilo</td><td><input type='file' name='img_pro' accept='image/jpeg, image/png'>";
+
+
         echo "<input type='hidden' name='id_utente' value='$id_utente'>";
         //echo "<tr><td>Ruolo</td><td>" . $riga["ruolo"] . "</td></tr>";
         echo "<tr><td colspan='2'><button type='submit' class='btn btn-primary'>Modifica</button></td></tr>";
-
 
         ?>
 

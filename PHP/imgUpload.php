@@ -4,8 +4,12 @@ print_r($_FILES["file"]);
 
 //Inserimento senza nessun controllo
 //Vado a prendere le informazioni che mi servono dall'array
-$filename = $_FILES["file"]["name"]; //Assegno lo stesos nome del file che mi è stato caricato
+//$filename = $_FILES["file"]["name"]; //Assegno lo stesos nome del file che mi è stato caricato
 
+// echo "<br>".$filename;
+$tipo_file = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);//Mki serve per sapere l'estensione del file
+// echo "<br>".$tipo_file;
+$filename = time().".".$tipo_file;
 //Controllo se nella cartella img è già presente un'immagine con lo stesso nome 
 if(file_exists("img/".$filename)){
     echo "File già presente";
