@@ -50,6 +50,20 @@ include("conf/connessioneDB.php");
 
         <h1>Elenco utenti del sito</h1>
 
+        <!-- gestione avvisi -->
+        <?php if(isset($_GET["esito"])): ?>
+            <?php if($_GET["esito"] == 1): ?>
+                <div class="alert alert-success" id="avviso" role="alert">
+                    Utente modificato correttamente
+                </div>
+            <?php else: ?>
+                <div class="alert alert-danger" id="avviso" role="alert">
+                    Errore modifica utente
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+        <!-- fine gestione avvisi -->
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -75,7 +89,7 @@ include("conf/connessioneDB.php");
                     echo "<td>
                     <a href='utente_visualizza.php?id_utente=$id_utente'><span class='material-symbols-outlined'>person</span></a>
                     <a href='utente_modifica.php?id_utente=$id_utente'><span class='material-symbols-outlined'>edit</span></a>
-                    <span class='material-symbols-outlined'>delete</span>
+                    <a href='utente_elimina.php?id_utente=$id_utente'><span class='material-symbols-outlined'>delete</span></a>
                     </td>";
                     echo "</tr>";
                 }
@@ -91,6 +105,21 @@ include("conf/connessioneDB.php");
     <!-- fine Footer -->
     <!-- JS BooTstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <!-- mio JS -->
+    <script>
+        const avviso = document.querySelector("#avviso");
+       
+        function nascondiAvviso(){
+            //alert("Ciao")
+            avviso.style.display = "none"
+            clearInterval(nascondi)
+        }
+        
+        let nascondi = setInterval(nascondiAvviso, 3000);
+
+       
+    </script>
 </body>
 
 </html>

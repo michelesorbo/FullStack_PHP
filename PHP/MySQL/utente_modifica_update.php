@@ -25,9 +25,9 @@ if($_POST["pwd"] != ""){
 }
 
 if($conn->query($sql) === true){
-    header('Location: utenti_visualizza.php');
+    header('Location: utenti_visualizza.php?esito=1');
 }else{
-    echo "Errore inserimento";
+    header('Location: utenti_visualizza.php?esito=2');
 }
 
 //Faccio l'update della password se è settata
