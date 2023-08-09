@@ -1,7 +1,7 @@
 <?php if($_SESSION["ruolo"] == "utente"): ?>
 <!-- INIZIO MENU UTENTI -->
 <nav class="navbar bg-primary navbar-expand-lg" data-bs-theme="dark">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
 <?php else: ?>
 <!-- INIZIO MENU AMMINISTRATORE -->
 <nav class="navbar bg-primary navbar-expand-lg" data-bs-theme="dark">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -44,6 +44,16 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="utenti_visualizza.php">Visualizza</a></li>
             <li><a class="dropdown-item" href="#">Inserisci</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Gestione Categorie
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="categorie_visualizza.php">Visualizza</a></li>
+            <li><a class="dropdown-item" href="categoria_inserisci.php">Inserisci</a></li>
           </ul>
         </li>
 

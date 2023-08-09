@@ -13,7 +13,11 @@
 //4) Nome del DB da utilazzare
 
 //$con mi serve per poter fare tutte le azioni sul db
+//Connessione DB locale
 $conn = new mysqli("localhost","root","root","frontendphp");
+
+//Connessione DB 000WEBHOST
+//$conn = new mysqli("localhost","id21110970_michele","Corso#20223","id21110970_frontendphp");
 
 //Testo se la connessione è andata a buon fine
 if($conn === false){

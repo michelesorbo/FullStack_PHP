@@ -10,17 +10,28 @@ $mail = $_POST["email"];
 $ruolo = $_POST["ruolo"];
 $id_utente = $_POST["id_utente"];
 
+//print_r($_FILES["img_pro"]);
+
+if($_FILES["img_pro"]["error"] == 0){
+    $filename = time()."_".$_FILES["img_pro"]["name"];
+
+    //Carico l'mmagine sul server
+    move_uploaded_file($_FILES["img_pro"]["tmp_name"], "img/".$filename);
+}else{
+    $filename = "default-user-image.png";
+}
+
 //Faccio la query di update per i dati senza la password
 
 if($_POST["pwd"] != ""){
     $pwd = md5($_POST["pwd"]); //Codifico la password inserita in md5
     
     $sql = "UPDATE utenti 
-    SET nome = '$nome', cognome = '$cognome', email = '$mail', ruolo = '$ruolo', pwd = '$pwd'
+    SET nome = '$nome', cognome = '$cognome', email = '$mail', ruolo = '$ruolo', pwd = '$pwd', img_profilo = '$filename'
     WHERE id = $id_utente";
 }else{
     $sql = "UPDATE utenti 
-    SET nome = '$nome', cognome = '$cognome', email = '$mail', ruolo = '$ruolo'
+    SET nome = '$nome', cognome = '$cognome', email = '$mail', ruolo = '$ruolo', img_profilo = '$filename'
     WHERE id = $id_utente";
 }
 

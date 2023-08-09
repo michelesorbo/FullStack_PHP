@@ -3,7 +3,7 @@
 session_start();
 //Evita sia che una persona non loggata veda la pagina sia chi non è amministratore
 if (!$_SESSION["user_id"] || $_SESSION["ruolo"] != "amministratore") {
-    header('Location: dashboard.php');
+    header('Locategoriaion: dashboard.php');
 }
 
 //Includo i file di configurazione
@@ -48,53 +48,35 @@ include("conf/connessioneDB.php");
 
     <div class="container">
         <?php 
-         $id_utente = $_GET["id_utente"];
+         $id_categoria = $_GET["id_cat"];
 
-         $ris = $conn->query("SELECT * FROM utenti WHERE id = $id_utente");
+         $ris = $conn->query("SELECT * FROM categorie WHERE id = $id_categoria");
  
          $riga = $ris->fetch_assoc();
         ?>
 
-        <h1>Dattagli Utente <?php echo formattaTesto($riga["nome"]) . " ". formattaTesto($riga["cognome"])?></h1>
+        <h1>Dattagli Categoria <?php echo formattaTesto($riga["nome"]); ?></h1>
 
-        <form method="post" action="utente_modifica_update.php" enctype="multipart/form-data">
+        <form method="post" action="categoria_modifica_update.php" enctype="multipart/form-data">
         <table class="table">
         <?php
 
         
         echo "<tr><td>Nome</td><td><input type='text' name='nome' value='" . formattaTesto($riga["nome"]) . "'></td></tr>";
-        echo "<tr><td>Cognome</td><td><input type='text' name='cognome' value='" . formattaTesto($riga["cognome"]) . "'></td></tr>";
-        echo "<tr><td>Email</td><td><input type='email' name='email' value='" . $riga["email"] . "'></td></tr>";
-        echo "<tr><td>Cambio Password</td><td><input type='password' name='pwd' placeholder='Inserisci solo se vuoi cambiare'></td></tr>";
-        //Creo la select per ruolo
-        echo "<tr><td>Ruolo</td><td><select name='ruolo'>";
-        if($riga["ruolo"] == "utente"){
-            echo "<option value='utente' selected>Utente</option>";
+        echo "<tr><td>Descrizione</td><td><textarea name='descrizione' cols='30' rows='10'>".$riga["descrizione"]."</textarea></td></tr>";
+
+        //Controllo se è presente l'immagine di categoria
+        if(is_null($riga["img_categoria"])){
+            echo "<tr><td>Immagine categoria</td><td><img src='img/catogorie/no_img.jpeg' class='img-thumbnail'></td></tr>";
         }else{
-            echo "<option value='utente'>Utente</option>";
+            $img_cat = $riga["img_categoria"]; //Salvo nella variabile per non dover concategoriaenare
+            echo "<tr><td>Immagine categoria</td><td><img src='img/categorie/$img_cat' class='img-thumbnail' height='150px'></td></tr>";
         }
 
-        if($riga["ruolo"] == "amministratore"){
-            echo "<option value='amministratore' selected>Amministratore</option>";
-        }else{
-            echo "<option value='amministratore'>Amministratore</option>";
-        }
+        echo "<tr><td>Aggiorna Immagine di categoria</td><td><input type='file' height='150px' name='img_cat' accept='image/jpeg, image/png'>";
 
 
-        echo "</select></td>";
-
-        //Controllo se è presente l'immagine di profilo
-        if(is_null($riga["img_profilo"])){
-            echo "<tr><td>Immagine Profilo</td><td><img src='img/default-user-image.png' class='img-thumbnail'></td></tr>";
-        }else{
-            $img_pro = $riga["img_profilo"]; //Salvo nella variabile per non dover concatenare
-            echo "<tr><td>Immagine Profilo</td><td><img src='img/$img_pro' class='img-thumbnail' height='150px'></td></tr>";
-        }
-
-        echo "<tr><td>Aggiorna Immagine di Profilo</td><td><input type='file' height='150px' name='img_pro' accept='image/jpeg, image/png'>";
-
-
-        echo "<input type='hidden' name='id_utente' value='$id_utente'>";
+        echo "<input type='hidden' name='id_categoria' value='$id_categoria'>";
         //echo "<tr><td>Ruolo</td><td>" . $riga["ruolo"] . "</td></tr>";
         echo "<tr><td colspan='2'><button type='submit' class='btn btn-primary'>Modifica</button></td></tr>";
 

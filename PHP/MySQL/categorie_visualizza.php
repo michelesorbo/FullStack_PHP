@@ -13,12 +13,12 @@ include("conf/connessioneDB.php");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizza Utenti</title>
+    <title>Visualizza Categorie</title>
     <!-- CSS BootStrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- font -->
@@ -54,11 +54,11 @@ include("conf/connessioneDB.php");
         <?php if (isset($_GET["esito"])) : ?>
             <?php if ($_GET["esito"] == 1) : ?>
                 <div class="alert alert-success" id="avviso" role="alert">
-                    Utente modificato correttamente
+                    Categoria modificata correttamente
                 </div>
             <?php else : ?>
                 <div class="alert alert-danger" id="avviso" role="alert">
-                    Errore modifica utente
+                    Errore modifica categoria
                 </div>
             <?php endif; ?>
         <?php endif; ?>
@@ -68,33 +68,29 @@ include("conf/connessioneDB.php");
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>Cognome</th>
-                    <th>Email</th>
-                    <th>Roulo</th>
+                    <th>Descrizione</th>
                     <th>Azioni</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 //Creo la query per estrarre tutti gli utenti con ruoo utente
-                $ris = $conn->query("SELECT * FROM utenti WHERE ruolo='utente'");
+                $ris = $conn->query("SELECT * FROM categorie");
 
                 while ($riga = $ris->fetch_assoc()) {
-                    $id_utente = $riga["id"]; //Salvo l'id in una variabile
+                    $id_cat = $riga["id"]; //Salvo l'id in una variabile
                     echo "<tr>";
                     echo "<td>" . formattaTesto($riga["nome"]) . "</td>";
-                    echo "<td>" . formattaTesto($riga["cognome"]) . "</td>";
-                    echo "<td>" . $riga["email"] . "</td>";
-                    echo "<td>" . $riga["ruolo"] . "</td>";
+                    echo "<td>" . $riga["descrizione"] . "</td>";
                     echo "<td>
-                    <a href='utente_visualizza.php?id_utente=$id_utente'><span class='material-symbols-outlined'>person</span></a>
-                    <a href='utente_modifica.php?id_utente=$id_utente'><span class='material-symbols-outlined'>edit</span></a>
-                    <a href='#' data-bs-toggle='modal' data-bs-target='#conferma-elimina-$id_utente' ><span class='material-symbols-outlined'>delete</span></a>
+                    <a href='utente_visualizza.php?id_cat=$id_cat'><span class='material-symbols-outlined'>person</span></a>
+                    <a href='categoria_modifica.php?id_cat=$id_cat'><span class='material-symbols-outlined'>edit</span></a>
+                    <a href='#' data-bs-toggle='modal' data-bs-target='#conferma-elimina-$id_cat' ><span class='material-symbols-outlined'>delete</span></a>
                     </td>";
                     echo "</tr>";
                 ?>
                     <!-- Modal -->
-                    <div class="modal fade" id="conferma-elimina-<?php echo $id_utente ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="conferma-elimina-<?php echo $id_cat ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -106,7 +102,7 @@ include("conf/connessioneDB.php");
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                    <a href="utente_elimina.php?id_utente='<?php echo $id_utente; ?>'" class="btn btn-primary">Elimina</a>
+                                    <a href="utente_elimina.php?id_cat='<?php echo $id_cat; ?>'" class="btn btn-primary">Elimina</a>
                                 </div>
                             </div>
                         </div>

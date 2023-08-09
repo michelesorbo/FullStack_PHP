@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Creato il: Ago 09, 2023 alle 07:11
+-- Creato il: Ago 09, 2023 alle 14:34
 -- Versione del server: 5.7.39
 -- Versione PHP: 8.2.0
 
@@ -33,18 +33,19 @@ CREATE TABLE `utenti` (
   `cognome` varchar(100) NOT NULL,
   `email` varchar(250) NOT NULL,
   `pwd` varchar(255) NOT NULL,
-  `ruolo` varchar(20) NOT NULL DEFAULT 'utente'
+  `ruolo` varchar(20) NOT NULL DEFAULT 'utente',
+  `img_profilo` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `utenti`
 --
 
-INSERT INTO `utenti` (`id`, `nome`, `cognome`, `email`, `pwd`, `ruolo`) VALUES
-(1, 'michele', 'sorbo', 'michele@sorbo.it', '81dc9bdb52d04dc20036dbd8313ed055', 'amministratore'),
-(2, 'davide', 'guidi', 'davide@guidi.it', '81dc9bdb52d04dc20036dbd8313ed055', 'utente'),
-(3, 'alessandro', 'sivo', 'ale@sivo.it', '81dc9bdb52d04dc20036dbd8313ed055', 'utente'),
-(4, 'davide', 'rossi', 'davide@rossi.it', '81dc9bdb52d04dc20036dbd8313ed055', 'utente');
+INSERT INTO `utenti` (`id`, `nome`, `cognome`, `email`, `pwd`, `ruolo`, `img_profilo`) VALUES
+(1, 'michele', 'sorbo', 'michele@sorbo.it', '81dc9bdb52d04dc20036dbd8313ed055', 'amministratore', NULL),
+(2, 'Davide', 'Guidi', 'davide@guidi.it', '81dc9bdb52d04dc20036dbd8313ed055', 'utente', 'default-user-image.png'),
+(3, 'alessandro', 'sivo', 'ale@sivo.it', '81dc9bdb52d04dc20036dbd8313ed055', 'utente', NULL),
+(5, 'davide', 'rossi', 'davide@rossi.it', '81dc9bdb52d04dc20036dbd8313ed055', 'utente', NULL);
 
 --
 -- Indici per le tabelle scaricate
@@ -64,7 +65,7 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
