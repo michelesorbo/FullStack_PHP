@@ -36,6 +36,13 @@ include("conf/connessioneDB.php");
     <div class="container">
 
     <h1>Benvenuto <?php echo formattaTesto($_SESSION["user_nome"]) . " " . formattaTesto($_SESSION["user_cognome"]) . " " . $_SESSION["ruolo"]; ?></h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos culpa magnam sapiente reprehenderit neque animi illo ullam quod reiciendis, incidunt expedita eius eaque vel laborum labore maiores officiis dolores obcaecati.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos culpa magnam sapiente reprehenderit neque animi illo ullam quod reiciendis, incidunt expedita eius eaque vel laborum labore maiores officiis dolores obcaecati.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos culpa magnam sapiente reprehenderit neque animi illo ullam quod reiciendis, incidunt expedita eius eaque vel laborum labore maiores officiis dolores obcaecati.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos culpa magnam sapiente reprehenderit neque animi illo ullam quod reiciendis, incidunt expedita eius eaque vel laborum labore maiores officiis dolores obcaecati.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos culpa magnam sapiente reprehenderit neque animi illo ullam quod reiciendis, incidunt expedita eius eaque vel laborum labore maiores officiis dolores obcaecati.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos culpa magnam sapiente reprehenderit neque animi illo ullam quod reiciendis, incidunt expedita eius eaque vel laborum labore maiores officiis dolores obcaecati.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos culpa magnam sapiente reprehenderit neque animi illo ullam quod reiciendis, incidunt expedita eius eaque vel laborum labore maiores officiis dolores obcaecati.</p>
 
     </div>
 

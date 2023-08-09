@@ -18,7 +18,7 @@ include("conf/connessioneDB.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizza Utenti</title>
+    <title>Visualizza Utente</title>
     <!-- CSS BootStrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- font -->
@@ -47,42 +47,30 @@ include("conf/connessioneDB.php");
     <!-- Fine Navbar -->
 
     <div class="container">
+        <?php 
+         $id_utente = $_GET["id_utente"];
 
-        <h1>Elenco utenti del sito</h1>
+         $ris = $conn->query("SELECT * FROM utenti WHERE id = $id_utente");
+ 
+         $riga = $ris->fetch_assoc();
+        ?>
+
+        <h1>Dattagli Utente <?php echo formattaTesto($riga["nome"]) . " ". formattaTesto($riga["cognome"])?></h1>
 
         <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Cognome</th>
-                    <th>Email</th>
-                    <th>Roulo</th>
-                    <th>Azioni</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                //Creo la query per estrarre tutti gli utenti con ruoo utente
-                $ris = $conn->query("SELECT * FROM utenti WHERE ruolo='utente'");
+        <?php
 
-                while ($riga = $ris->fetch_assoc()) {
-                    $id_utente = $riga["id"]; //Salvo l'id in una variabile
-                    echo "<tr>";
-                    echo "<td>" . formattaTesto($riga["nome"]) . "</td>";
-                    echo "<td>" . formattaTesto($riga["cognome"]) . "</td>";
-                    echo "<td>" . $riga["email"] . "</td>";
-                    echo "<td>" . $riga["ruolo"] . "</td>";
-                    echo "<td>
-                    <a href='utente_visualizza.php?id_utente=$id_utente'><span class='material-symbols-outlined'>person</span></a>
-                    <a href='utente_modifica.php?id_utente=$id_utente'><span class='material-symbols-outlined'>edit</span></a>
-                    <span class='material-symbols-outlined'>delete</span>
-                    </td>";
-                    echo "</tr>";
-                }
+       
+        echo "<tr><td>Nome</td><td>" . formattaTesto($riga["nome"]) . "</td></tr>";
+        echo "<tr><td>Cognome</td><td>" . formattaTesto($riga["cognome"]) . "</td></tr>";
+        echo "<tr><td>Email</td><td>" . $riga["email"] . "</td></tr>";
+        echo "<tr><td>Ruolo</td><td>" . $riga["ruolo"] . "</td></tr>";
 
-                ?>
-            </tbody>
+
+        ?>
+
         </table>
+
 
     </div>
 
