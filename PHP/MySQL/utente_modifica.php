@@ -65,8 +65,26 @@ include("conf/connessioneDB.php");
         echo "<tr><td>Nome</td><td><input type='text' name='nome' value='" . formattaTesto($riga["nome"]) . "'></td></tr>";
         echo "<tr><td>Cognome</td><td><input type='text' name='cognome' value='" . formattaTesto($riga["cognome"]) . "'></td></tr>";
         echo "<tr><td>Email</td><td><input type='email' name='email' value='" . $riga["email"] . "'></td></tr>";
-        echo "<tr><td>Ruolo</td><td>" . $riga["ruolo"] . "</td></tr>";
-        echo "<tr><td colspan='2'><button type='submit' class='btn-primary'>Modifica</button></td></tr>";
+        echo "<tr><td>Cambio Password</td><td><input type='password' name='pwd' placeholder='Inserisci solo se vuoi cambiare'></td></tr>";
+        //Creo la select per ruolo
+        echo "<tr><td>Ruolo</td><td><select name='ruolo'>";
+        if($riga["ruolo"] == "utente"){
+            echo "<option value='utente' selected>Utente</option>";
+        }else{
+            echo "<option value='utente'>Utente</option>";
+        }
+
+        if($riga["ruolo"] == "amministratore"){
+            echo "<option value='amministratore' selected>Amministratore</option>";
+        }else{
+            echo "<option value='amministratore'>Amministratore</option>";
+        }
+
+
+        echo "</select></td>";
+        echo "<input type='hidden' name='id_utente' value='$id_utente'>";
+        //echo "<tr><td>Ruolo</td><td>" . $riga["ruolo"] . "</td></tr>";
+        echo "<tr><td colspan='2'><button type='submit' class='btn btn-primary'>Modifica</button></td></tr>";
 
 
         ?>
