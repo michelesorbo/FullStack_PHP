@@ -1,9 +1,9 @@
 <?php 
 
 session_start();
-
+//Evita sia che una persona non loggata veda la pagina sia chi non è amministratore
 if(!$_SESSION["user_id"] || $_SESSION["ruolo"] != "amministratore"){
-    header('Location: login.php');
+    header('Location: dashboard.php');
 }
 
 //Includo i file di configurazione
@@ -36,7 +36,7 @@ include("conf/connessioneDB.php");
     <div class="container">
 
     <h1>Elenco utenti del sito</h1>
-    <?php echo $_SESSION["ruolo"]; ?>
+
     <table class="table table-striped">
         <thead>
         <tr>

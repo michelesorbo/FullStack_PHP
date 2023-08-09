@@ -3,7 +3,7 @@
 //Tutorial Republic: https://www.tutorialrepublic.com/php-tutorial/php-mysql-select-query.php
 
 
-include('connessioneDB.php');
+include('../conf/connessioneDB.php');
 
 //Voglio selzionare tutti gli elementi della tabellu utenti
 
