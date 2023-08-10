@@ -13,7 +13,7 @@ include("conf/connessioneDB.php");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
@@ -76,29 +76,25 @@ include("conf/connessioneDB.php");
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Cognome</th>
-                    <th>Email</th>
-                    <th>Roulo</th>
+                    <th>Tipo Contatto</th>
+                    <th>Contatto</th>
                     <th>Azioni</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
+                $id_utente = $_GET["id_utente"];
                 //Creo la query per estrarre tutti gli utenti con ruoo utente
-                $ris = $conn->query("SELECT * FROM utenti WHERE ruolo='utente'");
+                $ris = $conn->query("SELECT * FROM contatti WHERE id_utente='$id_utente'");
 
                 while ($riga = $ris->fetch_assoc()) {
-                    $id_utente = $riga["id"]; //Salvo l'id in una variabile
+                    $id_contatto = $riga["id"]; //Salvo l'id in una variabile
                     echo "<tr>";
-                    echo "<td>" . formattaTesto($riga["nome"]) . "</td>";
-                    echo "<td>" . formattaTesto($riga["cognome"]) . "</td>";
-                    echo "<td>" . $riga["email"] . "</td>";
-                    echo "<td>" . $riga["ruolo"] . "</td>";
+                    echo "<td>" . formattaTesto($riga["tipo_contatto"]) . "</td>";
+                    echo "<td>" . $riga["contatto"] . "</td>";
+                    
                     echo "<td>
-                    <a href='utente_visualizza.php?id_utente=$id_utente'><span class='material-symbols-outlined'>person</span></a>
-                    <a href='utente_modifica.php?id_utente=$id_utente'><span class='material-symbols-outlined testo_verde'>edit</span></a>
-                    <a href='utente_contatti.php?id_utente=$id_utente'><span class='material-symbols-outlined'>contacts</span></a>
+                    <a href='utente_contatto_modifica.php?id_utente=$id_utente'><span class='material-symbols-outlined testo_verde'>edit</span></a>
                     <a href='#' data-bs-toggle='modal' data-bs-target='#conferma-elimina-$id_utente' ><span class='material-symbols-outlined testo_rosso'>delete</span></a>
                     </td>";
                     echo "</tr>";
@@ -108,15 +104,15 @@ include("conf/connessioneDB.php");
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Elimina utente</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Elimina Contatto</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Sei sicuro che vuoi eliminare l'utente <?php echo formattaTesto($riga["cognome"]); ?>
+                                    Sei sicuro che vuoi eliminare il contatto <?php echo formattaTesto($riga["tipo_contatto"]); ?>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                    <a href="utente_elimina.php?id_utente=<?php echo $id_utente; ?>&img_profilo=<?php echo $riga["img_profilo"]; ?>" class="btn btn-primary">Elimina</a>
+                                    <a href="utente_contatto_elimina.php?id_utente=<?php echo $id_utente; ?>&img_profilo=<?php echo $riga["img_profilo"]; ?>" class="btn btn-primary">Elimina</a>
                                 </div>
                             </div>
                         </div>
