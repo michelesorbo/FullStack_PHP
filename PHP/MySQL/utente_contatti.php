@@ -23,7 +23,7 @@ include("conf/connessioneDB.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+
     <style>
         .material-symbols-outlined {
             font-variation-settings:
@@ -33,11 +33,11 @@ include("conf/connessioneDB.php");
                 'opsz' 48
         }
 
-        .testo_rosso{
+        .testo_rosso {
             color: red;
         }
 
-        .testo_verde{
+        .testo_verde {
             color: green;
         }
     </style>
@@ -47,17 +47,12 @@ include("conf/connessioneDB.php");
     <!-- inizio Navbar -->
     <?php
     include('template/menu.php');
-    // if($_SESSION["ruolo"] == "amministratore"){
-    //     include('template/menu_amministratore.php');    
-    // }else{
-    //     include('template/menu.php');
-    // }
     ?>
     <!-- Fine Navbar -->
 
     <div class="container">
 
-        <h1>Elenco utenti del sito</h1>
+        <h1>Elenco Contatti Utente</h1>
 
         <!-- gestione avvisi -->
         <?php if (isset($_GET["esito"])) : ?>
@@ -67,7 +62,7 @@ include("conf/connessioneDB.php");
                 </div>
             <?php else : ?>
                 <div class="alert alert-danger" id="avviso" role="alert">
-                <?php echo $_GET["msg"]; ?>
+                    <?php echo $_GET["msg"]; ?>
                 </div>
             <?php endif; ?>
         <?php endif; ?>
@@ -75,6 +70,9 @@ include("conf/connessioneDB.php");
 
         <table class="table table-striped">
             <thead>
+                <tr>
+                    <td colspan="3" align="right"><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Agg. Contatto</button></td>
+                </tr>
                 <tr>
                     <th>Tipo Contatto</th>
                     <th>Contatto</th>
@@ -92,7 +90,7 @@ include("conf/connessioneDB.php");
                     echo "<tr>";
                     echo "<td>" . formattaTesto($riga["tipo_contatto"]) . "</td>";
                     echo "<td>" . $riga["contatto"] . "</td>";
-                    
+
                     echo "<td>
                     <a href='utente_contatto_modifica.php?id_utente=$id_utente'><span class='material-symbols-outlined testo_verde'>edit</span></a>
                     <a href='#' data-bs-toggle='modal' data-bs-target='#conferma-elimina-$id_utente' ><span class='material-symbols-outlined testo_rosso'>delete</span></a>
@@ -122,6 +120,45 @@ include("conf/connessioneDB.php");
                 ?>
             </tbody>
         </table>
+
+        <!-- MODAL INSERIMENTO CONTATTI -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Aggiungi Nuovo Contatto</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="utente_contatti_insert.php">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Titpo Contatto:</label>
+                                <select class="form-select" name="tipo_contatto">
+                                    <option>---Scegli tipo contatto---</option>
+                                    <option value="email">Email</option>
+                                    <option value="email lavoro">Email Lavoro</option>
+                                    <option value="telefono casa">Telefono Casa</option>
+                                    <option value="telefono ufficio">Telefono Ufficio</option>
+                                    <option value="cellulare personale">Cellulare Personale</option>
+                                    <option value="cellulare lavoro">Cellulare Lavoro</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contatto" class="col-form-label">Contatto:</label>
+                                <input type="text" name="contatto" class="form-control">
+                            </div>
+                            <input type="hidden" name="id_utente" value="<?php echo $id_utente; ?>">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                        <button type="submit" class="btn btn-primary">Salva</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- FINE MODAL INSERIMENTO CONTATTI -->
 
     </div>
 
