@@ -16,17 +16,17 @@ if($_FILES["img_pro"]["error"] == 0){
     $filename = time()."_".$_FILES["img_pro"]["name"];
 
     //Carico l'mmagine sul server
-    move_uploaded_file($_FILES["img_pro"]["tmp_name"], "img/".$filename);
+    move_uploaded_file($_FILES["img_pro"]["tmp_name"], "img/utenti/".$filename);
 
     //Devo eliminare la vecchia immagine se non è quella di default
     if($_POST["old_img"] != "default-user-image.png"){
-        $oldfilename = "img/categorie/".$_POST["old_img"];
+        $oldfilename = "img/utenti/".$_POST["old_img"];
         unlink($oldfilename);
     }
 }else{
     $filename = $_POST["old_img"];
 }
-
+//echo $filename;
 //Faccio la query di update per i dati senza la password
 
 if($_POST["pwd"] != ""){

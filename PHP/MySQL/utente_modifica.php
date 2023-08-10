@@ -95,7 +95,7 @@ include("conf/connessioneDB.php");
 
 
         echo "<input type='hidden' name='id_utente' value='$id_utente'>";
-        echo "<input type='hidden' name='img_old' value='".$riga["img_profilo"]."'>";
+        echo "<input type='hidden' name='old_img' value='".$riga["img_profilo"]."'>";
         //echo "<tr><td>Ruolo</td><td>" . $riga["ruolo"] . "</td></tr>";
         echo "<tr><td colspan='2'><button type='submit' class='btn btn-primary'>Modifica</button></td></tr>";
 
