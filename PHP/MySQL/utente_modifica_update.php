@@ -3,8 +3,8 @@
 include('conf/connessioneDB.php');
 include('conf/funzioni.php');
 
-$nome = formattaTesto($_POST["nome"]);
-$cognome = formattaTesto($_POST["cognome"]);
+$nome = formattaIns($_POST["nome"]);
+$cognome = formattaIns($_POST["cognome"]);
 $mail = $_POST["email"];
 //$pwd = $_POST["pwd"];
 $ruolo = $_POST["ruolo"];
@@ -17,8 +17,14 @@ if($_FILES["img_pro"]["error"] == 0){
 
     //Carico l'mmagine sul server
     move_uploaded_file($_FILES["img_pro"]["tmp_name"], "img/".$filename);
+
+    //Devo eliminare la vecchia immagine se non è quella di default
+    if($_POST["old_img"] != "default-user-image.png"){
+        $oldfilename = "img/categorie/".$_POST["old_img"];
+        unlink($oldfilename);
+    }
 }else{
-    $filename = "default-user-image.png";
+    $filename = $_POST["old_img"];
 }
 
 //Faccio la query di update per i dati senza la password
@@ -36,9 +42,9 @@ if($_POST["pwd"] != ""){
 }
 
 if($conn->query($sql) === true){
-    header('Location: utenti_visualizza.php?esito=1');
+    header('Location: utenti_visualizza.php?esito=1&msg="Utente modificato"');
 }else{
-    header('Location: utenti_visualizza.php?esito=2');
+    header('Location: utenti_visualizza.php?esito=2&msg="Errore modifica utente"');
 }
 
 //Faccio l'update della password se è settata

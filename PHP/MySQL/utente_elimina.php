@@ -14,9 +14,9 @@ if($_GET["img_profilo"] != "default-user-image.png"){
 $sql = "DELETE FROM utenti WHERE id = $id_utente";
 
 if($conn->query($sql) === true){
-    header('Location: utenti_visualizza.php?esito=1');
+    header('Location: utenti_visualizza.php?esito=1&msg="Utente Eliminato"');
 }else{
-    header('Location: utenti_visualizza.php?esito=2');
+    header('Location: utenti_visualizza.php?esito=2&msg="Erorre eliminazione utente"');
 }
 
 ?>

@@ -6,4 +6,10 @@ function formattaTesto($str){
     return $str;
 }
 
+function formattaIns($str){
+    $str = trim($str);
+    $str = strtolower($str);
+    return $str;
+}
+
 ?>

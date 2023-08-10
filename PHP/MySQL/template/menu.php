@@ -43,7 +43,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="utenti_visualizza.php">Visualizza</a></li>
-            <li><a class="dropdown-item" href="#">Inserisci</a></li>
+            <li><a class="dropdown-item" href="utente_inserisci.php">Inserisci</a></li>
           </ul>
         </li>
 

@@ -6,7 +6,7 @@ include('conf/funzioni.php');
 $nome = formattaTesto($_POST["nome"]);
 $descrizione = $_POST["descrizione"];
 
-if($_FILES["img_pro"]["error"] == 0){
+if($_FILES["img_cat"]["error"] == 0){
     $filename = time()."_".$_FILES["img_cat"]["name"];
 
     //Carico l'mmagine sul server

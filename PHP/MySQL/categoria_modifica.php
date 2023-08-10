@@ -77,6 +77,7 @@ include("conf/connessioneDB.php");
 
 
         echo "<input type='hidden' name='id_categoria' value='$id_categoria'>";
+        echo "<input type='hidden' name='old_img' value='".$riga["img_categoria"]."'>";
         //echo "<tr><td>Ruolo</td><td>" . $riga["ruolo"] . "</td></tr>";
         echo "<tr><td colspan='2'><button type='submit' class='btn btn-primary'>Modifica</button></td></tr>";
 

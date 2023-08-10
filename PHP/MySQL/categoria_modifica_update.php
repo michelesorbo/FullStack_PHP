@@ -6,6 +6,7 @@ include('conf/funzioni.php');
 $nome = formattaTesto($_POST["nome"]);
 $descrizione = $_POST["descrizione"];
 $id_categoria = $_POST["id_categoria"];
+//echo $_POST["old_img"];
 
 //print_r($_FILES["img_cat"]);
 
@@ -14,9 +15,17 @@ if($_FILES["img_cat"]["error"] == 0){
 
     //Carico l'mmagine sul server
     move_uploaded_file($_FILES["img_cat"]["tmp_name"], "img/categorie/".$filename);
+
+    //Devo eliminare la vecchia immagine se non è quella di default
+    if($_POST["old_img"] != "no_img.jpeg"){
+        $oldfilename = "img/categorie/".$_POST["old_img"];
+        unlink($oldfilename);
+    }
 }else{
-    $filename = "no_img.jpeg";
+    $filename = $_POST["old_img"];
 }
+
+//echo $filename;
 
 //Faccio la query di update per i dati senza la password
 

@@ -62,11 +62,11 @@ include("conf/connessioneDB.php");
         <?php if (isset($_GET["esito"])) : ?>
             <?php if ($_GET["esito"] == 1) : ?>
                 <div class="alert alert-success" id="avviso" role="alert">
-                    Utente modificato correttamente
+                    <?php echo $_GET["msg"]; ?>
                 </div>
             <?php else : ?>
                 <div class="alert alert-danger" id="avviso" role="alert">
-                    Errore modifica utente
+                <?php echo $_GET["msg"]; ?>
                 </div>
             <?php endif; ?>
         <?php endif; ?>
@@ -114,7 +114,7 @@ include("conf/connessioneDB.php");
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                    <a href="utente_elimina.php?id_utente=<?php echo $id_utente; ?>&img_profilo=<?php echo $riga["img_progilo"]; ?>" class="btn btn-primary">Elimina</a>
+                                    <a href="utente_elimina.php?id_utente=<?php echo $id_utente; ?>&img_profilo=<?php echo $riga["img_profilo"]; ?>" class="btn btn-primary">Elimina</a>
                                 </div>
                             </div>
                         </div>

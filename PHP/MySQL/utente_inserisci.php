@@ -47,57 +47,27 @@ include("conf/connessioneDB.php");
     <!-- Fine Navbar -->
 
     <div class="container">
-        <?php 
-         $id_utente = $_GET["id_utente"];
 
-         $ris = $conn->query("SELECT * FROM utenti WHERE id = $id_utente");
- 
-         $riga = $ris->fetch_assoc();
-        ?>
+        <h1>Inserisci Utente</h1>
 
-        <h1>Dattagli Utente <?php echo formattaTesto($riga["nome"]) . " ". formattaTesto($riga["cognome"])?></h1>
-
-        <form method="post" action="utente_modifica_update.php" enctype="multipart/form-data">
+        <form method="post" action="utente_inserisci_insert.php" enctype="multipart/form-data">
         <table class="table">
         <?php
 
         
-        echo "<tr><td>Nome</td><td><input type='text' name='nome' value='" . formattaTesto($riga["nome"]) . "'></td></tr>";
-        echo "<tr><td>Cognome</td><td><input type='text' name='cognome' value='" . formattaTesto($riga["cognome"]) . "'></td></tr>";
-        echo "<tr><td>Email</td><td><input type='email' name='email' value='" . $riga["email"] . "'></td></tr>";
-        echo "<tr><td>Cambio Password</td><td><input type='password' name='pwd' placeholder='Inserisci solo se vuoi cambiare'></td></tr>";
+        echo "<tr><td>Nome</td><td><input type='text' name='nome' required></td></tr>";
+        echo "<tr><td>Cognome</td><td><input type='text' name='cognome' required></td></tr>";
+        echo "<tr><td>Email</td><td><input type='email' name='email' required></td></tr>";
+        echo "<tr><td>Password</td><td><input type='password' name='pwd' required></td></tr>";
         //Creo la select per ruolo
         echo "<tr><td>Ruolo</td><td><select name='ruolo'>";
-        if($riga["ruolo"] == "utente"){
-            echo "<option value='utente' selected>Utente</option>";
-        }else{
             echo "<option value='utente'>Utente</option>";
-        }
-
-        if($riga["ruolo"] == "amministratore"){
-            echo "<option value='amministratore' selected>Amministratore</option>";
-        }else{
             echo "<option value='amministratore'>Amministratore</option>";
-        }
-
-
         echo "</select></td>";
 
-        //Controllo se è presente l'immagine di profilo
-        if(is_null($riga["img_profilo"])){
-            echo "<tr><td>Immagine Profilo</td><td><img src='img/utenti/default-user-image.png' class='img-thumbnail'></td></tr>";
-        }else{
-            $img_pro = $riga["img_profilo"]; //Salvo nella variabile per non dover concatenare
-            echo "<tr><td>Immagine Profilo</td><td><img src='img/utenti/$img_pro' class='img-thumbnail' height='150px'></td></tr>";
-        }
+        echo "<tr><td>Immagine di Profilo</td><td><input type='file' height='150px' name='img_pro' accept='image/jpeg, image/png'>";
 
-        echo "<tr><td>Aggiorna Immagine di Profilo</td><td><input type='file' height='150px' name='img_pro' accept='image/jpeg, image/png'>";
-
-
-        echo "<input type='hidden' name='id_utente' value='$id_utente'>";
-        echo "<input type='hidden' name='img_old' value='".$riga["img_profilo"]."'>";
-        //echo "<tr><td>Ruolo</td><td>" . $riga["ruolo"] . "</td></tr>";
-        echo "<tr><td colspan='2'><button type='submit' class='btn btn-primary'>Modifica</button></td></tr>";
+        echo "<tr><td colspan='2'><button type='submit' class='btn btn-primary'>Inserisci</button></td></tr>";
 
         ?>
 
