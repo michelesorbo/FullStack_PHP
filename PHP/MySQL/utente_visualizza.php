@@ -67,10 +67,10 @@ include("conf/connessioneDB.php");
         echo "<tr><td>Ruolo</td><td>" . $riga["ruolo"] . "</td></tr>";
         //Controllo se è presente l'immagine di profilo
         if(is_null($riga["img_profilo"])){
-            echo "<tr><td>Immagine Profilo</td><td><img src='img/default-user-image.png' class='img-thumbnail'></td></tr>";
+            echo "<tr><td>Immagine Profilo</td><td><img src='img/utenti/default-user-image.png' class='img-thumbnail'></td></tr>";
         }else{
             $img_pro = $riga["img_profilo"]; //Salvo nella variabile per non dover concatenare
-            echo "<tr><td>Immagine Profilo</td><td><img src='img/$img_pro' class='img-thumbnail'></td></tr>";
+            echo "<tr><td>Immagine Profilo</td><td><img src='img/utenti/$img_pro' class='img-thumbnail'></td></tr>";
         }
 
 

@@ -114,7 +114,7 @@ include("conf/connessioneDB.php");
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                    <a href="utente_elimina.php?id_utente='<?php echo $id_utente; ?>'" class="btn btn-primary">Elimina</a>
+                                    <a href="utente_elimina.php?id_utente=<?php echo $id_utente; ?>&img_profilo=<?php echo $riga["img_progilo"]; ?>" class="btn btn-primary">Elimina</a>
                                 </div>
                             </div>
                         </div>
