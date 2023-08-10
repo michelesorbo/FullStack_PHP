@@ -31,6 +31,14 @@ include("conf/connessioneDB.php");
                 'GRAD' 0,
                 'opsz' 48
         }
+
+        .testo_rosso{
+            color: red;
+        }
+
+        .testo_verde{
+            color: green;
+        }
     </style>
 </head>
 
@@ -88,8 +96,8 @@ include("conf/connessioneDB.php");
                     echo "<td>" . $riga["ruolo"] . "</td>";
                     echo "<td>
                     <a href='utente_visualizza.php?id_utente=$id_utente'><span class='material-symbols-outlined'>person</span></a>
-                    <a href='utente_modifica.php?id_utente=$id_utente'><span class='material-symbols-outlined'>edit</span></a>
-                    <a href='#' data-bs-toggle='modal' data-bs-target='#conferma-elimina-$id_utente' ><span class='material-symbols-outlined'>delete</span></a>
+                    <a href='utente_modifica.php?id_utente=$id_utente'><span class='material-symbols-outlined testo_verde'>edit</span></a>
+                    <a href='#' data-bs-toggle='modal' data-bs-target='#conferma-elimina-$id_utente' ><span class='material-symbols-outlined testo_rosso'>delete</span></a>
                     </td>";
                     echo "</tr>";
                 ?>

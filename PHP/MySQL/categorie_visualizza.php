@@ -31,6 +31,14 @@ include("conf/connessioneDB.php");
                 'GRAD' 0,
                 'opsz' 48
         }
+
+        .testo_rosso{
+            color: red;
+        }
+
+        .testo_verde{
+            color: green;
+        }
     </style>
 </head>
 
@@ -83,9 +91,9 @@ include("conf/connessioneDB.php");
                     echo "<td>" . formattaTesto($riga["nome"]) . "</td>";
                     echo "<td>" . $riga["descrizione"] . "</td>";
                     echo "<td>
-                    <a href='utente_visualizza.php?id_cat=$id_cat'><span class='material-symbols-outlined'>person</span></a>
-                    <a href='categoria_modifica.php?id_cat=$id_cat'><span class='material-symbols-outlined'>edit</span></a>
-                    <a href='#' data-bs-toggle='modal' data-bs-target='#conferma-elimina-$id_cat' ><span class='material-symbols-outlined'>delete</span></a>
+                    <a href='categoria_visualizza.php?id_cat=$id_cat'><span class='material-symbols-outlined'>category</span></a>
+                    <a href='categoria_modifica.php?id_cat=$id_cat'><span class='material-symbols-outlined testo_verde'>edit</span></a>
+                    <a href='#' data-bs-toggle='modal' data-bs-target='#conferma-elimina-$id_cat' ><span class='material-symbols-outlined testo_rosso'>delete</span></a>
                     </td>";
                     echo "</tr>";
                 ?>
@@ -94,15 +102,15 @@ include("conf/connessioneDB.php");
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Elimina utente</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Elimina Categoria</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Sei sicuro che vuoi eliminare l'utente <?php echo formattaTesto($riga["cognome"]); ?>
+                                    Sei sicuro che vuoi eliminare la categoria <?php echo formattaTesto($riga["nome"]); ?>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                    <a href="utente_elimina.php?id_cat='<?php echo $id_cat; ?>'" class="btn btn-primary">Elimina</a>
+                                    <a href="categoria_elimina.php?id_cat='<?php echo $id_cat; ?>'" class="btn btn-primary">Elimina</a>
                                 </div>
                             </div>
                         </div>
