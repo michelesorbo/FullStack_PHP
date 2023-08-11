@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-});
+//Creo la url per le pagine della home index e about
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 
-Route::get('/about', function(){
-    $saluto = "Ciao dalla funzione route di Laravle";
-    return view('home.about')->with("saluto",$saluto);
-});
+
+//Pagine Prodotto
+Route::get('/prodotti', [ProductController::class, 'index'])->name('prodotti.index');
+Route::get('/prodotto/{id}', [ProductController::class, 'show'])->name('prodotto.show');
+
+// Route::get('/', function () {
+//     return view('home.index');
+// });
+
+// Route::get('/about', function(){
+//     $saluto = "Ciao dalla funzione route di Laravle";
+//     return view('home.about')->with("saluto",$saluto);
+// });

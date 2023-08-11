@@ -10,7 +10,7 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     {{-- MIO CSS --}}
-    <link href="{{ asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <title>@yield('title', 'Online Store')</title>
 </head>
@@ -26,8 +26,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" href="#">Home</a>
-                    <a class="nav-link active" href="#">About</a>
+                    <a class="nav-link active" href="{{ route('index') }}">Home</a>
+                    <a class="nav-link active" href="{{ route('prodotti.index') }}">Prodotti</a>
+                    <a class="nav-link active" href="{{ route('about') }}">About</a>
                 </div>
             </div>
         </div>
