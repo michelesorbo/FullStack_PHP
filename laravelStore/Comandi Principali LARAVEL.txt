@@ -1,0 +1,12 @@
+Per Creare un nuovo progetto LARAVEL:
+composer create-project laravel/laravel <nome_progetto> "9.*" --prefer-dist
+
+Per far eseguire il server di LARAVEL:
+>php artisan serve
+
+
+Per creare una nuova pagina o modificare la pagina di default si deve andare in
+resources/view/
+
+
+Per inserire i css e js nelle pagine laravel si deve andare nella cartella public/
