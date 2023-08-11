@@ -1,0 +1,9 @@
+Cercare tutti gli alunni che frequantano un corso che inizi per s o gli alunni che 
+iniziano per g e ordino in modo decrescento per cognome alunni
+
+SELECT alunni.nome, alunni.cognome, alunni.telefono, corsi.nome
+FROM alunni
+INNER JOIN frequenta ON frequenta.tessera_alunno = alunni.n_tessera
+INNER JOIN corsi ON corsi.id = frequenta.id_corso
+WHERE corsi.nome LIKE 's%' OR alunni.nome LIKE 'g%'
+ORDER BY alunni.cognome DESC
