@@ -7,3 +7,13 @@ INNER JOIN frequenta ON frequenta.tessera_alunno = alunni.n_tessera
 INNER JOIN corsi ON corsi.id = frequenta.id_corso
 WHERE corsi.nome LIKE 's%' OR alunni.nome LIKE 'g%'
 ORDER BY alunni.cognome DESC
+
+-----------------------------------------------------------------
+
+Quanto deve pagare al mese per i corsi che segue un alunno
+
+SELECT SUM(corsi.prezzo)
+FROM corsi
+INNER JOIN frequenta ON frequenta.id_corso = corsi.id
+INNER JOIN alunni ON alunni.n_tessera = frequenta.tessera_alunno
+WHERE alunni.nome = "gloria"
