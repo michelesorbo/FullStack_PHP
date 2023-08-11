@@ -1,3 +1,7 @@
+Documentazione:
+https://www.w3schools.com/sql/sql_count_avg_sum.asp
+---------------------------------------------------------------
+
 Cercare tutti gli alunni che frequantano un corso che inizi per s o gli alunni che 
 iniziano per g e ordino in modo decrescento per cognome alunni
 
