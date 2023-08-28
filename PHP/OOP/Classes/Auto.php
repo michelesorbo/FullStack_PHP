@@ -28,7 +28,14 @@ class Auto {
     }
 
     public function setColore($newColore){
-        $this->colore = $newColore;
+        //Se il colore è Nero, Verde, Blue, Grigio ok altrimenti inserire sempre Nero come colore
+        //Come fare senza usare if condizione && condizione https://www.w3schools.com/php/func_array_in_array.asp
+        $colori = ["Nero","Verde","Blue","Grigio"];
+        if(in_array($newColore, $colori)){
+            $this->colore = $newColore;
+        }else{
+            $this->colore = "Nero";
+        }
     }
 
     public function getColore(){
@@ -56,7 +63,9 @@ class Auto {
 $auto1 = new Auto("AUDI", "Nero", "A4"); //Inizalizzo l'oggetto Auto
 $auto2 = new Auto("BMW", "Verde", "Serie 1");
 $auto3 = new Auto("FIAT", "Blue", "500");
-$auto4 = new Auto("Citroen");
+$auto4 = new Auto("Citroen", "Arancio", "C4");
+
+$auto4->setColore("Viola");
 //Per stampare la proprietà marca dell'oggetto Auto
 echo $auto1->getMarca();
 $auto1->setColore("Grigio");    //$auto1->colore = "Grigio";
