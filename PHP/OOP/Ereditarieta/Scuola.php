@@ -128,11 +128,55 @@ class Docente extends Persona{
     }
 }
 
+//Creare Classe ATA con la proprietà mansione che può essere o Applicato di segreteria o Assistente scolastico
+//Riscrivere il metodo saluta con Ciao da <nome> <cognome> la mia mansione è <mansione>
+
+class ATA extends Persona{
+    protected $mansione;
+
+    public function __construct($nome,$cognome,$eta,$mansione){
+        parent::__construct($nome,$cognome,$eta);
+        $this->setMansione($mansione);
+    }
+
+	/**
+	 * @return mixed
+	 */
+	public function getMansione() {
+		return $this->mansione;
+	}
+	
+	/**
+	 * @param mixed $mansione 
+	 * @return self
+	 */
+	public function setMansione($mansione): self {
+        $mansioni = ["Applicato di segreteria", "Assistente scolastico"];
+		if(in_array($mansione, $mansioni)){
+            $this->mansione = $mansione;
+        }else{
+            $this->mansione = "Ancora da definire";
+        }
+        
+		return $this;
+	}
+
+    //Override
+    public function saluta(){
+        return "Ciao da " . $this->nome. " ". $this->cognome ." e la mia mansione è ". $this->mansione."<br>";
+    }
+
+}
+
 $p1 = new Persona("Mario", "Rossi", "32");
 $s1 = new Studente("Giuseppe", "Verdi","21", "5B");
 $d1 = new Docente("Gianni", "Versace", "45", "Matematica");
+
+$ata1 = new ATA("Veronica", "Marrone", "45", "Applicato di segreteria");
 
 echo $p1->saluta();
 echo $s1->saluta();
 
 echo $d1->saluta();
+
+echo $ata1->saluta();

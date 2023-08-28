@@ -14,7 +14,7 @@ class Auto {
     public function __construct($marca, $colore = null, $modello = null)
     {
         $this->marca = $marca; //La key $this serve come riferimento alle proprità della classe
-        $this->colore = $colore;
+        $this->setColore($colore);
         $this->modello = $modello;
     }
 
@@ -65,7 +65,7 @@ $auto2 = new Auto("BMW", "Verde", "Serie 1");
 $auto3 = new Auto("FIAT", "Blue", "500");
 $auto4 = new Auto("Citroen", "Arancio", "C4");
 
-$auto4->setColore("Viola");
+//$auto4->setColore("Viola");
 //Per stampare la proprietà marca dell'oggetto Auto
 echo $auto1->getMarca();
 $auto1->setColore("Grigio");    //$auto1->colore = "Grigio";
