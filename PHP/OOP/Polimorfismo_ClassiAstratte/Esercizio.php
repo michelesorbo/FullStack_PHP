@@ -42,6 +42,38 @@ class Rettangolo extends FiguraGeometrica{
     public function calcolaArea(){
         return $this->base * $this->altezza;
     }
+
+	/**
+	 * @return mixed
+	 */
+	public function getBase() {
+		return $this->base;
+	}
+	
+	/**
+	 * @param mixed $base 
+	 * @return self
+	 */
+	public function setBase($base): self {
+		$this->base = $base;
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getAltezza() {
+		return $this->altezza;
+	}
+	
+	/**
+	 * @param mixed $altezza 
+	 * @return self
+	 */
+	public function setAltezza($altezza): self {
+		$this->altezza = $altezza;
+		return $this;
+	}
 }
 
 $q1 = new Quadrato(10);
