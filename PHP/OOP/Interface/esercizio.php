@@ -1,7 +1,5 @@
 <?php
 
-use Auto as GlobalAuto;
-
 interface Casco{
     public function tipoCasco();
 }
